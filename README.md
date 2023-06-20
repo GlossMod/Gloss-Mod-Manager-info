@@ -4,6 +4,7 @@
 
 ![][license] ![][author] ![][Electron] ![][vue] ![][vuetify] [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
 </center> 
+
 ---- 
 
 ### What Is It?
