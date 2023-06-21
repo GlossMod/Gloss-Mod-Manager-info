@@ -2,7 +2,7 @@
 
 <center> 
 
-![][license] ![][author] ![][Electron] ![][vue] ![][vuetify] [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
+![][license] ![][author] ![][Electron] ![][vue] ![][vuetify] [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
 </center> 
 
 ---- 
@@ -58,14 +58,14 @@
 - [x] 适配一些热门游戏
 - [x] 自动检查更新
 - [x] 实现制作Mod包功能
-- [ ] 添加上传Mod包功能到Mod站。
-- [ ] 自动检查Mod更新功能
-- [ ] 实现Mod排序功能, 并允许用户自定义排序方式。
-- [ ] 自动处理Mod冲突问题
 - [x] 用户登录功能
     - APP 扫描登录 & 账号密码登录
 - [x] 添加启动游戏功能，并允许用户选择游戏路径。
 - [x] 多语言国际化，允许用户切换应用程序语言。
+- [ ] 添加上传Mod包功能到Mod站。
+- [ ] 自动检查Mod更新功能
+- [ ] 实现Mod排序功能, 并允许用户自定义排序方式。
+- [ ] 自动处理Mod冲突问题
 
 
 ### 帮助翻译
@@ -84,6 +84,7 @@
 
 ### 反馈问题
 
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
 - [QQ反馈群: 825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 

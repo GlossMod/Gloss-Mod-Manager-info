@@ -7,7 +7,7 @@
 
 ---- 
 
-### What Is It?
+### What's this?
 Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful and easy-to-use mod manager that provides gamers with a simple way to manage and install various game mods. Whether you're a novice or an expert, GMM will make your mod installation and management easier and faster.
 
 ### How to Use?
@@ -54,14 +54,14 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Adapt some popular games.
 - [x] Automatic update check.
 - [x] Implement the function of making mod packages.
-- [ ] Add the upload function of mod package to mod station.
-- [ ] Automatic check for mod updates.
-- [ ] Implement mod sorting function and allow users to customize sorting method.
-- [ ] Automatic processing of mod conflict problems.
 - [x] User login function
     - APP scan login & account password login
 - [x] Add the function of starting the game and allow users to choose the game path.
 - [x] Multi-language internationalization, allowing users to switch the application language.
+- [ ] Add the upload function of mod package to mod station.
+- [ ] Automatic check for mod updates.
+- [ ] Implement mod sorting function and allow users to customize sorting method.
+- [ ] Automatic processing of mod conflict problems.
 
 ### Translation Assistance
 If you would like to help us translate GMM into your language, you can follow these steps:
@@ -78,7 +78,7 @@ If you would like to help us translate GMM into your language, you can follow th
 
 ### Feedback
 
-- [GitHub](https://github.com/GlossMod)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
 - [Discord](https://discord.gg/TF46tu7Upw)
 - [Patreon](https://www.patreon.com/GlossModManager)
 
