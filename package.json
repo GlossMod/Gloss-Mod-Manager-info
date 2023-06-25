@@ -1,0 +1,11 @@
+{
+    "name": "gmm",
+    "version": "1.0.2",
+    "description": "",
+    "main": "index.js",
+    "author": "小莫",
+    "license": "GPL-3.0",
+    "devDependencies": {
+        "@types/node": "^20.1.4"
+    }
+}
