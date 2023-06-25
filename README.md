@@ -2,7 +2,7 @@
 
 <center> 
 
-![][license] ![][author] ![][Electron] ![][vue] ![][vuetify] [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
+![][license] ![][author] ![][Electron] ![][vue] ![][vuetify] ![][version] [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
 </center> 
 
 ---- 
@@ -94,3 +94,4 @@ Contact us on Discord.
 [pinia]: https://p.aoe.top/shields/badge/pinia-2.0.30-1867C0?logo=vuetify
 [typescript]: https://p.aoe.top/shields/badge/TypeScript-5.0.4-3178C6?logo=typescript
 [GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager-info?style=social
+[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager-info
