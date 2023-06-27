@@ -12,7 +12,6 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 
 ### How to Use?
 - Download and install it,
-- Unzip it to any location.
 - Run the `Gloss Mod Manager`.
 - Select your game.
 - Enjoy!
