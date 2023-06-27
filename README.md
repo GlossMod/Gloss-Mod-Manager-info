@@ -32,6 +32,8 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Resident Evil 4 HD Remake (Partially supported)
     - Currently only compatible with scripts based on the REFramework
 - [x] Stardew Valley (Fully supported)
+- [ ] AI Shoujo (Under planning)
+- [ ] Room Girl (Under planning)
 - [ ] Resident Evil 3 HD Remake (Under planning)
 - [ ] Resident Evil 2 HD Remake (Under planning)
 - [ ] Resident Evil 8 (Under planning)
