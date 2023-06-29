@@ -2,7 +2,7 @@
 
 <center> 
 
-![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][pinia]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
 </center> 
 
 ---- 
