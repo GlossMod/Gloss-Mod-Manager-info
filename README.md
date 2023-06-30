@@ -7,6 +7,12 @@
 
 ---- 
 
+### update address
+- 3DM Mods: https://mod.3dmgame.com/mod/197445
+- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
+- Discord: https://discord.gg/76hmqaw4yS
+
+
 ### What's this?
 Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful and easy-to-use mod manager that provides gamers with a simple way to manage and install various game mods. Whether you're a novice or an expert, GMM will make your mod installation and management easier and faster.
 

@@ -7,11 +7,17 @@
 
 ---- 
 
+### 更新地址:
+
+- 3DM Mod站: https://mod.3dmgame.com/mod/197445
+- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
+- 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 ### 这是什么？
-管模模(Gloss Mod Manager) 简称GMM, 是一款综合性的游戏模组管理器.
-是一款功能强大的综合性游戏Mod管理器, 它为游戏玩家提供了简单易用的方式来管理和安装各种游戏Mod.
-无论你是新手还是老手,使用GMM都会让你的Mod安装和管理更加轻松和快捷.
+Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgame.com/)』开发的一款综合性的游戏模组管理器.  
+它为游戏玩家提供了一个简单易用的方式来管理和安装各种游戏Mod.  
+安全无毒, 简单易用, 可帮助您快捷的 下载、安装、卸载 Mod.  
+无论你是新手还是老手,使用GMM都会让你的Mod安装和管理更加轻松和快捷.  
 
 ### 如何使用？
 - 下载并安装它,
@@ -32,7 +38,7 @@
 - [x] 太吾绘卷 (完全支持)
 - [x] 觅长生 (完全支持)
 - [x] 噬血代码 (完全支持)
-- [x] 生化危机4 重制版 (部分支持)
+- [x] <span style="color: #ffd533;">生化危机4 重制版 (部分支持)</span>
     - 目前仅适配基于 REFramework 的脚本
 - [x] 星露谷物语 (完全支持)
 - [ ] AI 少女 (计划中)
