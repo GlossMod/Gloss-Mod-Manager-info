@@ -28,7 +28,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Harry Potter and The Philosopher's Stone (Fully supported)
 - [x] Left 4 Dead (Fully supported)
 - [x] Cyberpunk 2077 (Fully supported)
-- [ ] ~~The Sims 4 (Under planning)  (Cannot open the game, temporarily shelved)~~
+- [x] The Sims 4 (Fully supported) 
 - [x] Monster Hunter: World (Fully supported)
 - [ ] Monster Hunter Rise (Under planning)
 - [x] Tale of Immortal (Fully supported)
