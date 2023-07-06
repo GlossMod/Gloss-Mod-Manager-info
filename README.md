@@ -30,7 +30,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Cyberpunk 2077 (Fully supported)
 - [x] The Sims 4 (Fully supported) 
 - [x] Monster Hunter: World (Fully supported)
-- [ ] Monster Hunter Rise (Under planning)
+- [x] Monster Hunter Rise (Fully supported)
 - [x] Tale of Immortal (Fully supported)
 - [x] Tale of Wuxia: The Pre-Sequel (Fully supported)
 - [x] Code Vein (Fully supported)
