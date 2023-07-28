@@ -39,6 +39,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Stardew Valley (Fully supported)
 - [x] The Witcher 3 (Fully supported)
 - [x] Fallout 4 (Fully supported)
+- [x] Mount & Blade II: Bannerlord (Fully supported)
 - [ ] AI Shoujo (Under planning)
 - [ ] Room Girl (Under planning)
 - [ ] Resident Evil 3 HD Remake (Under planning)
