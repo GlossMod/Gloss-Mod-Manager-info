@@ -48,7 +48,6 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [ ] Devil May Cry 5 (Under planning)
 - [ ] The Elder Scrolls V: Skyrim (Under planning)
 - [ ] The Elder Scrolls V: Skyrim Special Edition (Under planning)
-- [ ] The Witcher 5 (Under planning)
 - [ ] Dyson Sphere Program (Under planning)
 - [ ] ... (Under planning)
 
@@ -68,7 +67,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] Multi-language internationalization, allowing users to switch the application language.
 - [ ] Add the upload function of mod package to mod station.
 - [ ] Automatic check for mod updates.
-- [ ] Implement mod sorting function and allow users to customize sorting method.
+- [x] Implement mod sorting function and allow users to customize sorting method.
 - [ ] Automatic processing of mod conflict problems.
 
 ### Translation Assistance
