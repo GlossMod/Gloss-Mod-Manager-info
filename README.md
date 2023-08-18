@@ -40,7 +40,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
 - [x] The Witcher 3 (Fully supported)
 - [x] Fallout 4 (Fully supported)
 - [x] Mount & Blade II: Bannerlord (Fully supported)
-- [ ] Baldur's Gate 3 (Fully supported)
+- [x] Baldur's Gate 3 (Fully supported)
 - [ ] AI Shoujo (Under planning)
 - [ ] Room Girl (Under planning)
 - [ ] Resident Evil 3 HD Remake (Under planning)
@@ -66,7 +66,7 @@ Gloss Mod Manager (GMM) is a comprehensive game mod manager. It is a powerful an
     - APP scan login & account password login
 - [x] Add the function of starting the game and allow users to choose the game path.
 - [x] Multi-language internationalization, allowing users to switch the application language.
-- [ ] Add the upload function of mod package to mod station.
+- [x] Add the upload function of mod package to mod station.
 - [ ] Automatic check for mod updates.
 - [x] Implement mod sorting function and allow users to customize sorting method.
 - [ ] Automatic processing of mod conflict problems.
