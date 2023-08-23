@@ -113,7 +113,7 @@ If you are willing to help us translate GMM into your language, you can do the f
 Contact us on Discord. 
 
 [license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager-info.svg
-[author]: https://p.aoe.top/shields/badge/Author-XiaoMo-blue?logo=Cloudera
+[author]: https://p.aoe.top/shields/badge/Author-小莫-blue?logo=Cloudera
 [Electron]: https://p.aoe.top/shields/badge/Electron-22.0.3-47848F?logo=electron
 [vue]: https://p.aoe.top/shields/badge/Vue3-3.2.45-4FC08D?logo=vuedotjs
 [Vite]: https://p.aoe.top/shields/badge/Vite-4.0.4-646CFF?logo=vite
