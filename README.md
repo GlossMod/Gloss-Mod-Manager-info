@@ -58,6 +58,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Mount & Blade II: Bannerlord (fully supported)
 - [x] Don't Starve Together (fully supported)
 - [x] Divinity: Original Sin 3 (fully supported)
+- [x] Starfield (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] Resident Evil 3 Remake (planned)
