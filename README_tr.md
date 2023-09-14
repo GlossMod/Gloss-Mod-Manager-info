@@ -85,7 +85,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Add the function to launch games and allow users to choose the game path.
 - [x] Multilingual internationalization, allowing users to switch the application language.
 - [x] Add the function to upload mod packages to the mod station.
-- [ ] Automatic check of mod updates
+- [x] Automatic check of mod updates
 - [x] Implement the function of sorting mods, and allow users to customize the sorting method.
 - [ ] Automatically handle mod conflict issues
 
