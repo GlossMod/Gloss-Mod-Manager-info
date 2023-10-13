@@ -63,6 +63,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Final Fantasy 7 Remake (fully supported)
 - [x] Lies of P (fully supported)
 - [x] Divinity Original Sin 2 (fully supported)
+- [x] Rim World (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] Resident Evil 3 Remake (planned)
