@@ -50,8 +50,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Tale of Immortal (fully supported)
 - [x] Tale of Wuxia：The Pre-Sequel (fully supported)
 - [x] Code Vein (fully supported)
-- [x] <span style="color: #ffd533;">Resident Evil 4 Remake (partially supported)</span>
-    - Currently only supports scripts based on REFramework
+- [x] Resident Evil 4 Remake (fully supported)
 - [x] Stardew Valley (fully supported)
 - [x] The Witcher 3 (fully supported)
 - [x] Fallout 4 (fully supported)
@@ -67,14 +66,14 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Total War THREE KINGDOMS (fully supported)
 - [x] Total War WARHAMMER III (fully supported)
 - [x] SiFu (fully supported)
+- [x] Resident Evil 2 Remake (fully supported)
+- [x] Resident Evil 8 (fully supported)
+- [x] Devil May Cry 5 (fully supported)
+- [x] The Elder Scrolls V: Skyrim Special Edition (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] Resident Evil 3 Remake (planned)
-- [ ] Resident Evil 2 Remake (planned)
-- [ ] Resident Evil 8 (planned)
-- [ ] Devil May Cry 5 (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
-- [ ] The Elder Scrolls V: Skyrim Special Edition (planned)
 - [ ] Dyson Sphere Program (planned)
 - [ ] ... (planned)
 
