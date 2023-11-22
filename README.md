@@ -75,6 +75,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Planet Zoo (fully supported)
 - [x] GTA San Andreas Definitive Edition (fully supported)
 - [x] Red Dead: Redemption 2 (fully supported)
+- [x] Nioh 2 (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] Resident Evil 3 Remake (planned)
