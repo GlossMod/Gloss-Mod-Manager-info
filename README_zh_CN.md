@@ -12,6 +12,7 @@
 - 3DM Mod站: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
 - 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
+- 食用教程：https://wiki.aoe.top/GMM/README.html
 
 ### 这是什么？
 Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgame.com/u/9688990/Home)』开发的一款综合性的现代化游戏模组管理器.  
