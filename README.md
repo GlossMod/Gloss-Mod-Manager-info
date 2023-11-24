@@ -67,6 +67,7 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Total War WARHAMMER III (fully supported)
 - [x] SiFu (fully supported)
 - [x] Resident Evil 2 Remake (fully supported)
+- [x] Resident Evil 3 Remake (fully supported)
 - [x] Resident Evil 8 (fully supported)
 - [x] Devil May Cry 5 (fully supported)
 - [x] The Elder Scrolls V: Skyrim Special Edition (fully supported)
@@ -76,9 +77,9 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] GTA San Andreas Definitive Edition (fully supported)
 - [x] Red Dead: Redemption 2 (fully supported)
 - [x] Nioh 2 (fully supported)
+- [x] State of Decay 2 (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
-- [ ] Resident Evil 3 Remake (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
 - [ ] Dyson Sphere Program (planned)
 - [ ] ... (planned)

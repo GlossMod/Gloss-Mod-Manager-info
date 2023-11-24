@@ -11,8 +11,8 @@
 
 - 3DM Mod站: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
-- 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 - 食用教程：https://wiki.aoe.top/GMM/README.html
+- 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 ### 这是什么？
 Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgame.com/u/9688990/Home)』开发的一款综合性的现代化游戏模组管理器.  
@@ -26,7 +26,6 @@ Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgam
 - 选择您游玩的游戏
 - 开始享受吧!
 
-详细使用教程: https://mod.3dmgame.com/read/59
 
 
 ### 特性
@@ -73,6 +72,7 @@ Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgam
 - [x] 全面战争：战锤3 (完全支持)
 - [x] 师父 (完全支持)
 - [x] 生化危机2 重制版 (完全支持)
+- [x] 生化危机3 重制版 (完全支持)
 - [x] 生化危机8 (完全支持)
 - [x] 鬼泣5 (完全支持)
 - [x] 上古卷轴5 天际 重制版 (完全支持)
@@ -82,9 +82,9 @@ Gloss Mod Manager(管模模) 简称GMM, 是由『[小莫@3DM](https://mod.3dmgam
 - [x] GTA SA 最终版 (完全支持)
 - [x] 荒野大镖客2 (完全支持)
 - [x] 仁王2 (完全支持)
+- [x] 腐烂国度2 (完全支持)
 - [ ] AI 少女 (计划中)
 - [ ] 御宅少女 (计划中)
-- [ ] 生化危机3 重制版 (计划中)
 - [ ] ~~上古卷轴5 天际 (暂时不准备做支持)~~
 - [ ] 戴森球计划 (计划中)
 - [ ] ... (计划中)
