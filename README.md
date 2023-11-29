@@ -12,6 +12,7 @@
 - 3DM Mods: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
 - Discord: https://discord.gg/76hmqaw4yS
+- Doc: https://wiki.aoe.top/GMM/README.html
 
 ### What is it?
 Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 『[小莫@3DM](https://github.com/3DMXM)』. It provides an easy and user-friendly way for gamers to manage and install various mods for games. It ensures safety, simplicity, ease of use, and hassle-free quick download, installation, and uninstallation of mods. Whether you are a newbie or an expert, using GMM will make your mod installation and management much easier and faster.
@@ -22,7 +23,6 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 
 - Select the game that you want to play.
 - Enjoy!
 
-Detailed usage tutorial: https://mod.3dmgame.com/read/59
 
 
 ### Features
@@ -78,6 +78,8 @@ Detailed usage tutorial: https://mod.3dmgame.com/read/59
 - [x] Red Dead: Redemption 2 (fully supported)
 - [x] Nioh 2 (fully supported)
 - [x] State of Decay 2 (fully supported)
+- [x] Subnautica (fully supported)
+- [x] Grim Dawn (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
