@@ -80,6 +80,7 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 
 - [x] State of Decay 2 (fully supported)
 - [x] Subnautica (fully supported)
 - [x] Grim Dawn (fully supported)
+- [x] Cities Skylines 2 (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
