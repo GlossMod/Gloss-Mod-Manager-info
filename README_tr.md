@@ -122,7 +122,6 @@ If you are willing to help us translate GMM into your language, you can do the f
 ### Feedback
 - [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
 - [Discord](https://discord.gg/76hmqaw4yS)
-- [Patreon](https://www.patreon.com/GlossModManager)
 
 
 
