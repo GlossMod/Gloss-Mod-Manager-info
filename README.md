@@ -9,9 +9,8 @@
 
 ### Update address:
 
-- 3DM Mods: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
-- Discord: https://discord.gg/76hmqaw4yS
+- 3DM Mods: https://mod.3dmgame.com/mod/197445
 - Doc: https://wiki.aoe.top/GMM/README.html
 
 ### What is it?
