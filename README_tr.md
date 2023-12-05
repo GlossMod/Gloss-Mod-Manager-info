@@ -87,7 +87,6 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
-- [ ] Dyson Sphere Program (planned)
 - [ ] ... (planned)
 
 ### Development Plan
