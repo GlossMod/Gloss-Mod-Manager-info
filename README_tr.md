@@ -11,7 +11,6 @@
 
 - 3DM Mods: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
-- Discord: https://discord.gg/76hmqaw4yS
 - Doc: https://wiki.aoe.top/GMM/README.html
 
 ### What is it?
@@ -80,6 +79,11 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 
 - [x] Subnautica (fully supported)
 - [x] Grim Dawn (fully supported)
 - [x] Cities Skylines 2 (fully supported)
+- [x] Dyson Sphere Program (fully supported)
+- [x] Wandering Sword (fully supported)
+- [x] WulinSH (fully supported)
+- [x] Risk of Rain 2 (fully supported)
+- [x] Sons Of The Forest (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
