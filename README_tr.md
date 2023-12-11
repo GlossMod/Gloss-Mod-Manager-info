@@ -84,6 +84,9 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 
 - [x] WulinSH (fully supported)
 - [x] Risk of Rain 2 (fully supported)
 - [x] Sons Of The Forest (fully supported)
+- [x] WarmSnow (fully supported)
+- [x] Euro Truck Simulator 2 (fully supported)
+- [x] American Truck Simulator (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
