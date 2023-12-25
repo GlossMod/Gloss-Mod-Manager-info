@@ -1,11 +1,20 @@
 ---
 name: 提交Bug
 about: 提交一个你遇到的Bug
-title: ''
-labels: ''
-assignees: ''
+title: '[Bug]'
+labels: ["bug", "triage"]
+assignees:
+  - octocat
+
+body:
+  - type: markdown
+    attributes:
+    value: |
+        Thanks for taking the time to fill out this bug report!
 
 ---
+
+
 
 **描述bug**
 将你遇到的Bug进行描述
