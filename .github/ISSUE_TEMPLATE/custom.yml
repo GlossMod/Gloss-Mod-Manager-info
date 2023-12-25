@@ -1,0 +1,40 @@
+name: 请求帮助
+description: 遇到问题不会用, 请求帮助.
+title: "[求助]: "
+labels: ["求助", "triage"]
+assignees:
+    - 3DMXM
+
+body:
+    - type: checkboxes
+      attributes:
+          label: 是否已读文档
+          description: 确保我已经翻阅了 [使用文档](https://wiki.aoe.top/GMM/README.html) 没有发现解决方法
+          options:
+              - label: 已读
+                required: true
+    - type: input
+      id: game
+      attributes:
+          label: "游戏"
+          description: "告诉我 你是在安装那款游戏的Mod"
+      validations:
+          required: true
+    - type: input
+      id: mod
+      attributes:
+          label: Mod地址
+          description: 你使用哪个Mod出现了问题, 将Mod地址告诉我
+          placeholder: 在这里输入Mod的链接地址
+    - type: textarea
+      id: describe
+      attributes:
+          label: 问题描述
+          description: 告诉我你遇到了什么问题?
+          placeholder: 在这里进行详细的描述
+    - type: input
+      id: version
+      attributes:
+          label: 管理器版本
+          description: 你使用的管理器是什么版本的? (在设置里面查看)
+          placeholder: ex. 1.26.0

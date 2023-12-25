@@ -3,7 +3,7 @@ description: 向我们反馈一个BUg
 title: "[Bug]: "
 labels: ["bug", "triage"]
 assignees:
-    - octocat
+    - 3DMXM
 body:
     - type: markdown
       attributes:
