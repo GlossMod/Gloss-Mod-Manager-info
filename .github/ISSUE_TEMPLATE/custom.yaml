@@ -26,12 +26,16 @@ body:
           label: Mod地址
           description: 你使用哪个Mod出现了问题, 将Mod地址告诉我
           placeholder: 在这里输入Mod的链接地址
+      validations:
+          required: true
     - type: textarea
       id: describe
       attributes:
           label: 问题描述
           description: 告诉我你遇到了什么问题?
           placeholder: 在这里进行详细的描述
+      validations:
+          required: true
     - type: input
       id: version
       attributes:

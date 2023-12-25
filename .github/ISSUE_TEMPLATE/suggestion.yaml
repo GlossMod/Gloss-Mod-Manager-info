@@ -1,0 +1,20 @@
+name: 建议
+description: 给我们提交建议.
+title: "[建议]: "
+labels: ["建议", "triage"]
+assignees:
+    - 3DMXM
+
+body:
+    - type: markdown
+      attributes:
+          value: |
+              如果您有什么好的建议, 欢迎提交给我!
+    - type: textarea
+      id: describe
+      attributes:
+          label: 建议
+          description: 您有什么好的建议?
+          placeholder: 欢迎在这里写下来
+      validations:
+          required: true
