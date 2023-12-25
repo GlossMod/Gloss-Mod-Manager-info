@@ -1,61 +1,63 @@
-name: BUG 提交
-description: 提交产品缺陷帮助我们更好的改进
-title: "[BUG]"
-labels: ["类型: Bug"]
-assignees: wanghe-fit2cloud
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - octocat
 body:
   - type: markdown
-    id: contacts_title
     attributes:
-      value: "## 联系方式"
+      value: |
+        Thanks for taking the time to fill out this bug report!
   - type: input
-    id: contacts
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
     validations:
       required: false
-    attributes:
-      label: "联系方式"
-      description: "可以快速联系到您的方式：交流群号及昵称、邮箱等"
-  - type: markdown
-    id: environment
-    attributes:
-      value: "## 环境信息"
-  - type: input
-    id: version
-    validations:
-      required: true
-    attributes:
-      label: "1Panel 版本"
-      description: "登录 1Panel Web 控制台，在页面右下角查看当前版本。"
-  - type: markdown
-    id: details
-    attributes:
-      value: "## 详细信息"
   - type: textarea
     id: what-happened
     attributes:
-      label: "问题描述"
-      description: "简要描述您碰到的问题"
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
     validations:
       required: true
-  - type: textarea
-    id: how-happened
+  - type: dropdown
+    id: version
     attributes:
-      label: "重现步骤"
-      description: "如果操作可以重现该问题"
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
     validations:
       required: true
-  - type: textarea
-    id: expect
+  - type: dropdown
+    id: browsers
     attributes:
-      label: "期待的正确结果"
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
   - type: textarea
     id: logs
     attributes:
-      label: "相关日志输出"
-      description: "请复制并粘贴任何相关的日志输出。 这将自动格式化为代码，因此无需反引号。"
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
-  - type: textarea
-    id: additional-information
+  - type: checkboxes
+    id: terms
     attributes:
-      label: "附加信息"
-      description: "如果你还有其他需要提供的信息，可以在这里填写（可以提供截图、视频等）。"
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
