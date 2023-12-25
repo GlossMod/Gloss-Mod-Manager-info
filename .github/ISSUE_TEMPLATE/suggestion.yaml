@@ -1,4 +1,4 @@
-name: 建议
+name: 提交建议
 description: 给我们提交建议.
 title: "[建议]: "
 labels: ["建议", "triage"]
