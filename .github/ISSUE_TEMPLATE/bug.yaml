@@ -53,4 +53,4 @@ body:
       attributes:
           label: 其他?
           description: "如果你使用的是其他系统,请写出来"
-          placeholder: ""
+          placeholder: "..."
