@@ -1,0 +1,36 @@
+name: Language Paks
+description: Send me the language pack you made.
+title: "[Language]: "
+labels: ["Language", "triage"]
+assignees:
+    - 3DMXM
+
+body:
+    - type: markdown
+      attributes:
+          value: |
+              If you complete the language translation package, please send it to me,Thank you so much!
+    - type: input
+      id: name
+      attributes:
+          label: you name
+          description: Please leave your name here so that everyone will remember your contribution
+          placeholder: name
+      validations:
+          required: true
+    - type: input
+      id: lang-code
+      attributes:
+          label: language code
+          description: Tell me your language code
+          placeholder: ex. zh_TW
+      validations:
+          required: true
+    - type: textarea
+      id: lang-pak
+      attributes:
+          label: Language Paks
+          description: Please give me the language pack.
+          placeholder: json code or file link
+      validations:
+          required: true
