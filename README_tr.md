@@ -14,7 +14,7 @@
 - Doc: https://wiki.aoe.top/GMM/README.html
 
 ### What is it?
-Gloss Mod Manager (GMM) is a comprehensive modern game mod manager developed by 『[小莫@3DM](https://github.com/3DMXM)』. It provides an easy and user-friendly way for gamers to manage and install various mods for games. It ensures safety, simplicity, ease of use, and hassle-free quick download, installation, and uninstallation of mods. Whether you are a newbie or an expert, using GMM will make your mod installation and management much easier and faster.
+Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides an easy and user-friendly way for gamers to manage and install various mods for games. It ensures safety, simplicity, ease of use, and hassle-free quick download, installation, and uninstallation of mods. Whether you are a newbie or an expert, using GMM will make your mod installation and management much easier and faster.
 
 ### How to use?
 - Download and install it,

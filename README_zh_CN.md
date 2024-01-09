@@ -12,10 +12,11 @@
 - 3DM Mod站: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
 - 食用教程：https://wiki.aoe.top/GMM/README.html
+- 问卷调查: https://wj.qq.com/s2/14010887/92e3/
 - 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 ### 这是什么？
-Gloss Mod Manager 简称GMM, 是由『[小莫@3DM](https://mod.3dmgame.com/u/9688990/Home)』开发的一款综合性的现代化游戏模组管理器.  
+Gloss Mod Manager (GMM) 是一款综合性的现代化游戏模组管理器.  
 它为游戏玩家提供了一个简单易用的方式来管理和安装各种游戏Mod.  
 安全无毒, 简单易用, 可帮助您快捷的 下载、安装、卸载 Mod.  
 无论你是新手还是老手,使用GMM都会让你的Mod安装和管理更加轻松和快捷.  
