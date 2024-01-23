@@ -9,8 +9,8 @@
 
 ### Update address:
 
-- 3DM Mods: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
+- 3DM Mods: https://mod.3dmgame.com/mod/197445
 - Doc: https://wiki.aoe.top/GMM/README.html
 
 ### What is it?
@@ -21,6 +21,7 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - Run `Gloss Mod Manager`.
 - Select the game that you want to play.
 - Enjoy!
+
 
 
 ### Features
@@ -93,6 +94,8 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Humankind (fully supported)
 - [x] Two Point Campus (fully supported)
 - [x] Sid Meier's Civilization VI (fully supported)
+- [x] Titanfall 2 (fully supported)
+- [x] Palworld (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~

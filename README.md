@@ -94,6 +94,8 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Humankind (fully supported)
 - [x] Two Point Campus (fully supported)
 - [x] Sid Meier's Civilization VI (fully supported)
+- [x] Titanfall 2 (fully supported)
+- [x] Palworld (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
