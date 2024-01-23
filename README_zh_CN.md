@@ -7,7 +7,7 @@
 
 ---- 
 
-### 更新地址:
+### 相关链接:
 
 - 3DM Mod站: https://mod.3dmgame.com/mod/197445
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
