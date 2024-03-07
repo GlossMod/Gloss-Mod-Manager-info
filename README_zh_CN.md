@@ -13,7 +13,7 @@
 - GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
 - 食用教程：https://wiki.aoe.top/GMM/README.html
 - 问卷调查: https://wj.qq.com/s2/14010887/92e3/
-- 反馈QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
+- 反馈QQ群: [492849207](https://qm.qq.com/q/cA8Asd8kCI)
 
 ### 这是什么？
 Gloss Mod Manager (GMM) 是一款综合性的现代化游戏模组管理器.  
