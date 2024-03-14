@@ -98,6 +98,10 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Palworld (fully supported)
 - [x] Tekken 8 (fully supported)
 - [x] Like A Dragon 8 (fully supported)
+- [x] Kenshi (fully supported)
+- [x] Contraband Police (fully supported)
+- [x] Valheim (fully supported)
+- [x] Street Fighter 6 (fully supported)
 - [ ] AI Shoujo (planned)
 - [ ] Koikatsu Party (planned)
 - [ ] ~~The Elder Scrolls V: Skyrim (not planned for support)~~
