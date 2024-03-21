@@ -103,8 +103,6 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Valheim (fully supported)
 - [x] Street Fighter 6 (fully supported)
 - [x] ACE COMBAT 7 (fully supported)
-- [x] Cult Of The Lamb (fully supported)
-- [x] Stellaris (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
