@@ -105,6 +105,11 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] ACE COMBAT 7 (fully supported)
 - [x] Cult Of The Lamb (fully supported)
 - [x] Stellaris (fully supported)
+- [x] Pal7 (fully supported)
+- [x] Dragons Dogma 2 (fully supported)
+- [x] Atomic Heart (fully supported)
+- [x] Watch Dogs 2 (fully supported)
+- [x] The Callisto Protocol (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
