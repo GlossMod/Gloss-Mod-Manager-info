@@ -110,6 +110,12 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Atomic Heart (fully supported)
 - [x] Watch Dogs 2 (fully supported)
 - [x] The Callisto Protocol (fully supported)
+- [x] JUMP FORCE (fully supported)
+- [x] Warriors Orochi 4 (fully supported)
+- [x] The Long Dark (fully supported)
+- [x] Crusader Kings 3 (fully supported)
+- [x] TheHunter: Call of the Wild (fully supported)
+- [x] Kingdom Come Deliverance (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
