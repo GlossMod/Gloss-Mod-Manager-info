@@ -83,7 +83,7 @@
     "Status": "Durum",
     "Action": "Aksiyon",
     "Drag and drop the Mod compressed package here for management": "Yönetim için Mod sıkıştırılmış paketi buraya sürükleyip bırakın",
-    "Supports zpi, rar, 7z file types": "Aşağıdaki dosya türlerini destekler zpi, rar, 7z",
+    "Supports zip, rar, 7z file types": "Aşağıdaki dosya türlerini destekler zip, rar, 7z",
     "Installed": "İndirildi",
     "Uninstalled": "İndirilmedi",
     "MD5": "MD5",

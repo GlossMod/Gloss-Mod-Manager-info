@@ -106,7 +106,7 @@
     "Status": "Tình trạng",
     "Action": "Hành động",
     "Drag and drop the Mod compressed package here for management": "Kéo và thả tập tin nén Mod vào đây để quản lý",
-    "Supports zpi, rar, 7z file types": "Các loại tập tin được hỗ trợ zpi, rar, 7z",
+    "Supports zip, rar, 7z file types": "Các loại tập tin được hỗ trợ zip, rar, 7z",
     "Installed": "Cài đặt",
     "Uninstalled": "Đã gỡ cài đặt",
     "MD5": "MD5",

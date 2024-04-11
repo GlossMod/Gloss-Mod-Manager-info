@@ -101,7 +101,7 @@
     "Status": "狀態",
     "Action": "操作",
     "Drag and drop the Mod compressed package here for management": "將Mod壓縮包拖拽到這裡進行管理",
-    "Supports zpi, rar, 7z file types": "支持zpi、rar、7z類型文件",
+    "Supports zip, rar, 7z file types": "支持zip、rar、7z類型文件",
     "Installed": "已安裝",
     "Uninstalled": "未安裝",
     "MD5": "MD5",
