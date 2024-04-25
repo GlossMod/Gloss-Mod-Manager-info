@@ -117,6 +117,8 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] TheHunter: Call of the Wild (fully supported)
 - [x] Kingdom Come Deliverance (fully supported)
 - [x] Dying Light 2 (fully supported)
+- [x] Next Jianghu 2 (fully supported)
+- [x] The Lost Village (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
