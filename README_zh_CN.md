@@ -9,11 +9,12 @@
 
 ### 相关链接:
 
-- 3DM Mod站: https://mod.3dmgame.com/mod/197445
-- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
-- 食用教程：https://wiki.aoe.top/GMM/README.html
+- 最新版本: [3DM Mod站](https://mod.3dmgame.com/mod/197445) | [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) | [网盘](https://cloud.aoe.top/s/rmuL)
+- 食用教程: https://wiki.aoe.top/GMM/README.html
+- Mod前置: https://cloud.aoe.top/s/KrRfO
+- 问题反馈: [QQ群 492849207](https://qm.qq.com/q/cA8Asd8kCI) | [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues)
 - 问卷调查: https://wj.qq.com/s2/14010887/92e3/
-- 反馈QQ群: [492849207](https://qm.qq.com/q/cA8Asd8kCI)
+
 
 ### 这是什么？
 Gloss Mod Manager (GMM) 是一款综合性的现代化游戏模组管理器.  
