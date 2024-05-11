@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: 安装Mod
       link: /Install
+    - theme: alt
+      text: 下载
+      link: "https://mod.3dmgame.com/mod/197445?for=download"
   image:
     src: "https://mod.3dmgame.com/static/upload/mod/202405/MOD663ed1e5509eb.png@webp"
     # width: "200px"
