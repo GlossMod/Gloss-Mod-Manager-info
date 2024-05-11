@@ -5,32 +5,30 @@ layout: home
 hero:
   name: "Gloss Mod Manager"
   # text: "A VitePress Site"
-  tagline: "一款综合性的现代化游戏模组管理器"
+  tagline: "A comprehensive modern game mod manager"
   actions:
     - theme: brand
-      text: 开始使用
-      link: /README.md
+      text: Getting Started
+      link: /en/README
     - theme: alt
-      text: 安装Mod
-      link: /Install
+      text: Install Mod
+      link: /en/Install
   image:
     src: "https://mod.3dmgame.com/static/upload/mod/202405/MOD663ed1e5509eb.png@webp"
     # width: "200px"
     alt: "Gloss Mod Manager"
 
 features:
-  - title: 这是什么？
-    details: "Gloss Mod Manager(GMM) 是一款综合性的现代化游戏模组管理器.是一款功能强大的综合性游戏Mod管理器, 它为游戏玩家提供了简单易用的方式来管理和安装各种游戏Mod."
-  - title: 特性
-    details: "自适应语言, 自适应主题, 简洁的 UI, 没有多余的内容和囊肿的广告, 简单的安装和下载, 便捷的游览、下载 Mod, 令人舒适的动画, 程序无毒无捆绑, 功能全部免费开放"
-  - title: 支持的语言
+  - title: What is this?
+    details: "Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It is a powerful comprehensive game mod manager that provides game players with a simple and easy way to manage and install various game mods."
+  - title: Features
+    details: "Adaptive language, adaptive theme, simple UI, no unnecessary content and bloated ads, simple installation and download, convenient browsing and downloading mods, comfortable animations, no virus and no bundling, all functions are free and open"
+  - title: Supported Languages
     details: "简体中文 <br/>
 繁体中文 <br/>
 English <br/>
 Türkçe by:sinnerclown <br/>
 Vietnamese by:TQ34"
-
-
 
 ---
 
