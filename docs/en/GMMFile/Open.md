@@ -2,9 +2,9 @@
 
 `*.GMM` files are a type of `one-click installation package` packaged by Gloss Mod Manager.
 
-If you have downloaded this type of file without installing GMM, it is recommended that you first [download](/GMM/README.html#how-to-download) and install GMM.
+If you have downloaded this type of file without installing GMM, it is recommended that you first [download](/en/README.html#how-to-download) and install GMM.
 
-Then, perform the most basic [initial setup](/GMM/Use.html).
+Then, perform the most basic [initial setup](/en/Use.html).
 
 After that, you can directly double-click to run the `*.gmm` file, which will automatically open GMM and import it.
 
