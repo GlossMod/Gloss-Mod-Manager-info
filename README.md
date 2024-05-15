@@ -121,6 +121,9 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] The Lost Village (fully supported)
 - [x] Manor Lords (fully supported)
 - [x] Hades 2 (fully supported)
+- [x] Homeworld 3 (fully supported)
+- [x] DaoYanJue (fully supported)
+- [x] V Rising (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
