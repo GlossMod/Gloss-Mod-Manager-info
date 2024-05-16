@@ -45,6 +45,13 @@ export const shared = defineConfig({
               s.parentNode.insertBefore(hm, s);
             })();`
         ],
+        [
+            'script',
+            {
+                "async": "true",
+                'src': 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5978423097771370',
+            }
+        ],
         ['meta', { name: 'og:site_name', content: 'Gloss Mod Manager' }],
         ['meta', { name: 'og:locale', content: 'zh' }],
         ['meta', { name: 'og:type', content: 'website' }],
@@ -55,6 +62,26 @@ export const shared = defineConfig({
                 "rel": "icon",
                 "href": "https://mod.3dmgame.com/static/upload/mod/202405/MOD663ed1e5509eb.png@webp",
             }
-        ]
+        ],
+        // [
+        //     'script',
+        //     {
+        //         "src": "https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.2/libs/oversea/index.js",
+        //         "type": "text/javascript",
+        //     }
+        // ],
+        // [
+        //     'script',
+        //     {},
+        //     `new CozeWebSDK.WebChatClient({
+        //         config: {
+        //             bot_id: '7368057478376407045',
+        //         },
+        //         componentProps: {
+        //             title: 'Coze',
+        //         },
+        //     });
+        //   `
+        // ]
     ],
 })
