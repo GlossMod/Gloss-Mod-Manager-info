@@ -124,6 +124,8 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Homeworld 3 (fully supported)
 - [x] DaoYanJue (fully supported)
 - [x] V Rising (fully supported)
+- [x] Ghost of Tsushima (fully supported)
+- [x] Lords of the Fallen (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
