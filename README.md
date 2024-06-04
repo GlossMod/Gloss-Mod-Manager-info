@@ -126,6 +126,9 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] V Rising (fully supported)
 - [x] Ghost of Tsushima (fully supported)
 - [x] Lords of the Fallen (fully supported)
+- [x] Darkest Dungeon 2 (fully supported)
+- [x] Senua's Saga Hellblade 2 (fully supported)
+- [x] Terraria (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
