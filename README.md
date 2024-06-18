@@ -129,6 +129,9 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - [x] Darkest Dungeon 2 (fully supported)
 - [x] Senua's Saga Hellblade 2 (fully supported)
 - [x] Terraria (fully supported)
+- [x] Kerbal Space Program (fully supported)
+- [x] Expeditions A MudRunner Game (fully supported)
+- [x] Legend Of Mortal (fully supported)
 - [ ] ... (planned)
 
 ### Development Plan
