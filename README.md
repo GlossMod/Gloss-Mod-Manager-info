@@ -9,9 +9,9 @@
 
 ### Update address:
 
-- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
-- 3DM Mods: https://mod.3dmgame.com/mod/197445
-- Doc: https://gmm.aoe.top/
+- Latest Version:  [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) | [3DM Mods](https://mod.3dmgame.com/mod/197445) | [Cloud](https://cloud.aoe.top/s/rmuL)
+- Docs: https://gmm.aoe.top
+- Feedback: [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues)
 
 ### What is it?
 Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides an easy and user-friendly way for gamers to manage and install various mods for games. It ensures safety, simplicity, ease of use, and hassle-free quick download, installation, and uninstallation of mods. Whether you are a newbie or an expert, using GMM will make your mod installation and management much easier and faster.
