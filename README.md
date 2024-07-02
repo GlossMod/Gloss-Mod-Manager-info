@@ -36,6 +36,8 @@ Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides 
 - Comfortable animation
 - Virus-free and binding-free program
 - All features available for free
+- Backup Saves and Game files
+- Quick switch of game library
 
 ### Supported Games
 - [x] Elden Ring (fully supported)
