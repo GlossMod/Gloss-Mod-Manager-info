@@ -45,13 +45,13 @@ export const shared = defineConfig({
               s.parentNode.insertBefore(hm, s);
             })();`
         ],
-        [
-            'script',
-            {
-                "async": "true",
-                'src': 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5978423097771370',
-            }
-        ],
+        // [
+        //     'script',
+        //     {
+        //         "async": "true",
+        //         'src': 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5978423097771370',
+        //     }
+        // ],
         ['meta', { name: 'og:site_name', content: 'Gloss Mod Manager' }],
         ['meta', { name: 'og:locale', content: 'zh' }],
         ['meta', { name: 'og:type', content: 'website' }],
