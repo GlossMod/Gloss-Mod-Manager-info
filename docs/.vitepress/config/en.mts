@@ -89,8 +89,8 @@ export const en = defineConfig({
         },
         footer: {
             message: 'Published under GPL-3.0 License',
-            copyright: `Copyright © 2023-${new Date().getFullYear()} By 小莫 <br/> 
-            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" data-v-a41d4df4="">湘ICP备2021011453号-1</a>`,
+            copyright: `Copyright © 2023-${new Date().getFullYear()} By 小莫 <br/> `,
+            // <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" data-v-a41d4df4="">湘ICP备2021011453号-1</a>`,
         },
         docFooter: {
             prev: 'Previous',

@@ -90,8 +90,8 @@ export const zh = defineConfig({
         },
         footer: {
             message: '基于 GPL-3.0 许可发布',
-            copyright: `版权所有 © 2023-${new Date().getFullYear()} By 小莫 <br/> 
-            <a href="https://beian.miit.gov.cn/" target="_blank" rel="nopener norefoerrer" data-v-a41d4df4="">湘ICP备2021011453号-1</a>`,
+            copyright: `版权所有 © 2023-${new Date().getFullYear()} By 小莫 <br/> `,
+            // <a href="https://beian.miit.gov.cn/" target="_blank" rel="nopener norefoerrer" data-v-a41d4df4="">湘ICP备2021011453号-1</a>`,
         },
         docFooter: {
             prev: '上一页',
