@@ -13,7 +13,7 @@ Main advantages:
 ## Getting Started
 
 > Prerequisites:
-> GMM supports your game ([List of Supported Games](https://github.com/GlossMod/Gloss-Mod-Manager-info/blob/main/README_zh_CN.md#%E6%94%AF%E6%8C%81%E7%9A%84%E6%B8%B8%E6%88%8F))
+> GMM supports your game ([List of Supported Games](../SupportedGames.md))
 
 1. Add the mod to GMM and then select to package it.
    ![](https://mod.3dmgame.com/static/upload/mod/202311/MOD655db65ba3e44.png@webp)

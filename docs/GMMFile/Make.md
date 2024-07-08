@@ -13,7 +13,7 @@
 ## 开始制作
 
 > 前提: 
-> GMM 支持你的游戏 ([游戏支持列表](https://github.com/GlossMod/Gloss-Mod-Manager-info/blob/main/README_zh_CN.md#%E6%94%AF%E6%8C%81%E7%9A%84%E6%B8%B8%E6%88%8F))
+> GMM 支持你的游戏 ([游戏支持列表](../SupportedGames.md))
 
 1. 将Mod添加到GMM里面去，然后选择打包
     ![](https://mod.3dmgame.com/static/upload/mod/202311/MOD655db65ba3e44.png@webp)
