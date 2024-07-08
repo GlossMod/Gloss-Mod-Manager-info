@@ -17,6 +17,7 @@ export const en = defineConfig({
                     { text: "Introduction, Download & Install", link: "/en/README.md" },
                     { text: "Running and Using", link: "/en/Use.md" },
                     { text: "Installing & Uninstalling Mods", link: "/en/Install.md" },
+                    { text: "Supported Games", link: "/en/SupportedGames.md" },
                     { text: "Translate GMM Software", link: "/en/Translate.md" },
                     {
                         text: "Frequently Asked Questions",

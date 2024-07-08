@@ -1,0 +1,95 @@
+# Supported Games
+- Elden Ring 
+- Sekiro: Shadows Die Twice 
+- Hogwarts Legacy 
+- Left 4 Dead 2 
+- Cyberpunk 2077 
+- The Sims 4  
+- Monster Hunter: World 
+- Monster Hunter Rise 
+- Tale of Immortal 
+- Tale of Wuxia：The Pre-Sequel 
+- Code Vein 
+- Resident Evil 4 Remake 
+- Stardew Valley 
+- The Witcher 3 
+- Fallout 4 
+- Mount & Blade II: Bannerlord 
+- Don't Starve Together 
+- Divinity: Original Sin 3 
+- Starfield 
+- Armored Core 6 
+- Final Fantasy 7 Remake 
+- Lies of P 
+- Divinity Original Sin 2 
+- Rim World 
+- Total War THREE KINGDOMS 
+- Total War WARHAMMER III 
+- SiFu 
+- Resident Evil 2 Remake 
+- Resident Evil 3 Remake 
+- Resident Evil 8 
+- Devil May Cry 5 
+- The Elder Scrolls V: Skyrim Special Edition 
+- No Man's Sky 
+- 7 Days to Die 
+- Planet Zoo 
+- GTA San Andreas Definitive Edition 
+- Red Dead: Redemption 2 
+- Nioh 2 
+- State of Decay 2 
+- Subnautica 
+- Grim Dawn 
+- Cities Skylines 2 
+- Dyson Sphere Program 
+- Wandering Sword 
+- WulinSH 
+- Risk of Rain 2 
+- Sons Of The Forest 
+- WarmSnow 
+- Euro Truck Simulator 2 
+- American Truck Simulator 
+- Grand Theft Auto V 
+- Lethal Company 
+- Anno 1800 
+- Humankind 
+- Two Point Campus 
+- Sid Meier's Civilization VI 
+- Titanfall 2 
+- Palworld 
+- Tekken 8 
+- Like A Dragon 8 
+- Kenshi 
+- Contraband Police 
+- Valheim 
+- Street Fighter 6 
+- ACE COMBAT 7 
+- Cult Of The Lamb 
+- Stellaris 
+- Pal7 
+- Dragons Dogma 2 
+- Atomic Heart 
+- Watch Dogs 2 
+- The Callisto Protocol 
+- JUMP FORCE 
+- Warriors Orochi 4 
+- The Long Dark 
+- Crusader Kings 3 
+- TheHunter: Call of the Wild 
+- Kingdom Come Deliverance 
+- Dying Light 2 
+- Next Jianghu 2 
+- The Lost Village 
+- Manor Lords 
+- Hades 2 
+- Homeworld 3 
+- DaoYanJue 
+- V Rising 
+- Ghost of Tsushima 
+- Lords of the Fallen 
+- Darkest Dungeon 2 
+- Senua's Saga Hellblade 2 
+- Terraria 
+- Kerbal Space Program 
+- Expeditions A MudRunner Game 
+- Legend Of Mortal 

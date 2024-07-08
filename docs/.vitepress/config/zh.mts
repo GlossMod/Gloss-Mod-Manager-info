@@ -18,6 +18,7 @@ export const zh = defineConfig({
                     { text: "介绍、下载与安装", link: '/README.md' },
                     { text: "运行和使用", link: "/Use.md" },
                     { text: "安装与卸载Mod", link: "/Install.md" },
+                    { text: "支持的游戏", link: "/SupportedGames.md" },
                     { text: "翻译软件 | Translate GMM", link: "/Translate.md" },
                     {
                         text: "常见问题",
