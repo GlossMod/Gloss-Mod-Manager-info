@@ -10,7 +10,7 @@ titleTemplate: Gloss Mod Manager
 - 艾尔登法环、太吾绘卷、鬼谷八荒、觅长生 需要正版游戏才能正常启动游戏.
 - 艾尔登法环 和 星露谷物语 需要安装对应的 前置插件 才能正常启动
   - 艾尔登法环需要安装 [Mod Engine 2](https://mod.3dmgame.com/mod/197418) 
-  - 星露谷物语需要安装 [SMAPI - 星露谷 Mod API For GMM](https://mod.3dmgame.com/mod/197894)
+  - 星露谷物语需要安装 [【SMAPI】Stardew Modding API](https://mod.3dmgame.com/mod/207496)
   
 ## 启动游戏报错
 这种情况，一般是游戏版本与Mod版本不符合导致的，管理器自动下的前置均为适配正版,学习版可能会出现兼容问题，比如说：
