@@ -93,3 +93,5 @@
 - Kerbal Space Program 
 - Expeditions A MudRunner Game 
 - Legend Of Mortal 
+- HaiShan
+- Flintlock: The Siege of Dawn
