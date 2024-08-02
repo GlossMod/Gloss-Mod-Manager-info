@@ -95,3 +95,5 @@
 - Legend Of Mortal 
 - HaiShan
 - Flintlock: The Siege of Dawn
+- Jagged Alliance 3
+- DRAGON BALL FighterZ
