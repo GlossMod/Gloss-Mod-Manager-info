@@ -12,6 +12,9 @@ titleTemplate: Gloss Mod Manager
 
 另外，如果你启用了防火墙，记得允许访问网络. 
 
+如果以上方法均不行，可以尝试 按 ` Ctrl+R ` 然后点击 `重新下载` 按钮
+![](https://mod.3dmgame.com/static/upload/mod/202408/MOD66b2c8034f4e8.png@webp)
+
 ## 问题2：写入文件失败
 
 可能是卡了，点击 下载=》打开文件夹，将这个目录中的所有文件全部删掉，然后在管理器中按`Ctrl+R`，再重新下载
