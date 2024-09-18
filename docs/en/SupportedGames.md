@@ -98,3 +98,4 @@
 - Jagged Alliance 3
 - DRAGON BALL FighterZ
 - Black Myth Wukong
+- Shapez 2

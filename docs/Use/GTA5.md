@@ -88,3 +88,8 @@ titleTemplate: Gloss Mod Manager
     ![](https://mod.3dmgame.com/static/upload/mod/202403/MOD65e979a07ac8f.png@webp)
   - 也有可能是 "dlclist.xml" 文件在安装Mod的时候出现了损坏, 那么这种情况你可以需要用到 [OpenIV](https://mod.3dmgame.com/mod/31262) 来进行修复， 打开 `mods/update/update.rpf/common/data/dlclist.xml`,  然后看这个文件是否有出现 损坏，翻到最底下,可能能看到缺少 `</Item>` `</Paths>` `</SMandatoryPacksData>` 这种结尾符,  正常的应该长这个样子
     ![](https://mod.3dmgame.com/static/upload/mod/202212/MOD6392b1a226e40.jpg@webp)
+
+- 文件加载被阻止
+  - 这个报错长这样:
+    ![](https://mod.3dmgame.com/static/upload/mod/202409/MOD66ea878039782.jpg@webp)
+    原因是 R星在 2024/9/18 更新了 BattlEye 反作弊, 在启动项里面添加 `-nobattleye` 关闭 BattlEye 即可解决此问题
