@@ -99,3 +99,5 @@
 - DRAGON BALL FighterZ
 - Black Myth Wukong
 - Shapez 2
+- Genshin Impact
+- The road of Jianghu
