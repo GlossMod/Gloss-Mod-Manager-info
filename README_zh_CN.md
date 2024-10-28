@@ -12,8 +12,10 @@
 - 最新版本: [3DM Mod站](https://mod.3dmgame.com/mod/197445) | [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) | [网盘](https://cloud.aoe.top/s/rmuL)
 - 食用教程: https://gmm.aoe.top/
 - Mod前置: https://cloud.aoe.top/s/KrRfO
-- 问题反馈: [QQ群 948689016](https://qm.qq.com/q/3PzfmR1sBi) | [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues)
+- 问题反馈: [QQ频道](https://pd.qq.com/s/hco46ol54) | [QQ群 948689016](https://qm.qq.com/q/3PzfmR1sBi) | [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues) 
 - 问卷调查: https://wj.qq.com/s2/14010887/92e3/
+
+    <img src="https://mod.3dmgame.com/static/upload/mod/202410/MOD671f300fbe3b7.webp" width="200px" alt="频道">
 
 
 ### 这是什么？
