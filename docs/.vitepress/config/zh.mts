@@ -46,15 +46,10 @@ export const zh = defineConfig({
                         collapsed: true,
                         items: [
                             { text: "概览", link: "/Expands/README.md" },
-                            {
-                                text: "TS适配 (1.29.0版本",
-                                items: [
-                                    { text: "概览", link: "/Expands/TS/README.md" },
-                                    { text: "属性", link: "/Expands/Property.md" },
-                                    { text: "类型", link: "/Expands/Type.md" },
-                                ],
-                                collapsed: true,
-                            },
+                            { text: "TS适配 (1.29.0版本", link: "/Expands/TS.md" },
+                            { text: "JSON适配 (1.36.0版本", link: "/Expands/JSON.md" },
+                            { text: "属性", link: "/Expands/Property.md" },
+                            { text: "类型", link: "/Expands/Type.md" },
                             { text: "开发者模式", link: "/Expands/Dev.md" },
                         ]
                     },

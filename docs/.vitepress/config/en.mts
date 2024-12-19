@@ -45,15 +45,10 @@ export const en = defineConfig({
                         collapsed: true,
                         items: [
                             { text: "Overview", link: "/en/Expands/README.md" },
-                            {
-                                text: "TS Compatibility (1.29.0 Version",
-                                items: [
-                                    { text: "Overview", link: "/en/Expands/TS/README.md" },
-                                    { text: "Properties", link: "/en/Expands/Property.md" },
-                                    { text: "Types", link: "/en/Expands/Type.md" },
-                                ],
-                                collapsed: true,
-                            },
+                            { text: "TS Compatibility (v1.29.0", link: "/en/Expands/TS.md" },
+                            { text: "JSON (v1.36.0", link: "/en/Expands/JSON.md" },
+                            { text: "Properties", link: "/en/Expands/Property.md" },
+                            { text: "Types", link: "/en/Expands/Type.md" },
                             { text: "Developer Mode", link: "/en/Expands/Dev.md" },
                         ]
                     },

@@ -1,257 +1,53 @@
 # 为 Gloss Mod Manager 添加游戏适配
 
-~~在 v1.29.0 版本, 我们将 游戏适配部分进行了开源, 这将允许所有玩家和开发者来制作自己想要适配的游戏.~~
+在 1.51.0 版本，我对 游戏适配进行了更加简单优化， 在 选择游戏 窗口中，能找到 “创建自定义游戏”的选项；
+
+![](https://mod.3dmgame.com/static/upload/mod/202412/MOD676283a00e646.png@webp)
+ 
+### 旧版本
+-  [使用 TS 来制作游戏适配](TS.md) 
+-  [使用 JSON 来制作游戏适配](JSON.md) 
+
+### 属性介绍
 
 
-在 v1.36.0 版本, 我对自定义拓展进行了简化，改用`json`格式来适配, 1.29.0版本的适配方式由于难度太高, 这次更新将适配的门槛进行了大量的降低, 但缺点是没有使用`TS`的扩展性高, 你可以根据自己的能力来选择
 
-[使用 TS 来制作游戏适配](TS/README.md) 
+| 属性         | 介绍                               | 用途                                                                                                                   | 详细介绍                                   | 必填 |
+| ------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ---- |
+| 游戏ID       | 3DM Mod站的游戏ID                  | 游戏的唯一标识, 同时也用于游览里面的 "3DM Mods" 选项的游览内容来源                                                     | [链接](/Expands/Property.html#glossgameid) | ✔    |
+| Steam ID     | Steam 中的 AppId, 如果未上架则填 0 | 用于定位游戏安装目录 (原计划接入Steam创意工坊内容, 但到现在也没有实现)                                                 |                                            | ✔    |
+| Thunderstore | Thunderstore 的社区路径            | 用于游览里面的 "Thunderstore" 选项的游览内容来源                                                                       |                                            | ✖    |
+| Mod.Io Id    | 在 Mod.Io 中的ID                   | 用于游览里面的 "Mod.Io" 选项的游览内容来源                                                                             |                                            | ✖    |
+| GameBanana   | 在 GameBanana 中的ID               | 用于游览里面的 "GameBanana" 选项的游览内容来源                                                                         |                                            | ✖    |
+| CurseForge   | 在 CurseForge 中的ID               | 用于游览里面的 "CurseForge" 选项的游览内容来源                                                                         |                                            | ✖    |
+| 安装目录     | 游戏所在的目录文件夹               | 用于 使用 Steam ID + 安装目录 来定位游戏所在目录                                                                       |                                            | ✔    |
+| 游戏名称     | 游戏的名称                         | 游戏的名称, 用于生成Mod存储目录, 尽量使用英文, 然后再用翻译来将其翻译为其他语言                                        |                                            | ✔    |
+| 主程序名称   | 游戏的主程序名称                   | 用于判断是否选择了正确的游戏, 如果主程序直接在根目录, 则用简易模式, 如果不在根目录, 则使用高级模式                     | [链接](/Expands/Property.html#gameexe)     | ✔    |
+| 启动方式     | 游戏的启动方式                     | 如果只需要一种启动方式, 则用简易模式, 如果想要多种启动方式, 则使用高级模式, 在高级模式中, 前三个选项 和 cmd 二选一即可 | [链接](/Expands/Property.html#startexe)    | ✔    |
+| 封面         | 游戏的封面图片                     | 用于游戏选择界面的显示                                                                                                 |                                            | ✔    |
+| 类型         | Mod的安装类型                      | 新增了通用的 unity 、虚幻 的类型, 以及自定义安装, 自定义相关选项可参考 "modType"                                       | [参考](/Expands/JSON.html#示例)            | ✔    |
+| 检查类型     | Mod的检查类型                      | 同上, 用于判断Mod是属于哪个类型， 自定义可参考 "checkModType"                                                          | [参考](/Expands/JSON.html#示例)            | ✔    |
 
-## 前置工具
-- [vs code](https://code.visualstudio.com/)
+### 翻译游戏
 
+上面说了，游戏名称需要使用英文，那么如果你想在 GMM 中显示中文, 可以使用自定义翻译功能. 
 
-## JSON参数解释
-
-[更详细的属性](Property.md)
+在 `C:\Users\xiaom\Documents\Gloss Mod Manager\lang\` 目录中新建一个文件夹, 例如 `zh_CN.json`, 然后在里面添加如下内容:
 
 ```json
 {
-    "GlossGameId": 0,           // Mod站的游戏ID, number 类型
-    "steamAppID": 0 ,           // 游戏在Steam中的AppId, number 类型
-    "installdir": "",           // 游戏安装目录, string 类型
-    "gameName": "",             // 游戏名称, string 类型, 尽量英文
-    "gameExe":  "",             // 游戏主程序， string | IGameExe[] 类型
-    "startExe": "",             // 游戏启动程序, string | IStartExe[] 类型
-    "gameCoverImg": "",         // 游戏封面, string 类型
-    "modType": [
-        {
-            "id": 1,            // 类型的唯一标识符, number 类型
-            "name": "",         // 在管理界面显示的名称
-            "installPath": "",  // 安装路径
-            "install": {
-                // UseFunction 参考 https://gist.github.com/3DMXM/ed15e18a1442d69bfafcb05534561fc4
-                // "generalInstall" | "generalUninstall" | "installByFolder" | "installByFile" | "installByFileSibling" | "installByFolderParent" | "Unknown"
-                // 其他参数是传递到 UseFunction 里面的值, 只需要填 UseFunction 需要的即可, 均有注释.
-                "UseFunction": "",
-                "folderName": "",
-                "isInstall":true | false,   // 是安装还是卸载
-                "fileName": "",             // 文件名称 或 拓展名(.*)
-                "include": true | false,    
-                "spare": true | false,
-                "keepPath": true | false,
-                "isExtname": true | false,
-                "inGameStorage": true | false,
-                "pass": [],
-            },
-            "uninstall": {
-                // 同上 install
-                ...
-            }
-        }
-    ],
-    "checkModType": [
-        {
-            // "extname"    通过拓展名判断 
-            // "basename"   通过文件名判断
-            // "inPath"     通过路径判断
-            "UseFunction": "",
-            "Keyword": [],      // 文件名 或 拓展名 或 路径包含
-            "TypeId": 1,        // 如果包含则返此ID
-        }
-    ]
-}
-```
-
-
-## 接口结构
-
-这是TS 解析的时候的接口
-
-```ts
-export type InstallUseFunction = "generalInstall" | "generalUninstall" | "installByFolder" | "installByFile" | "installByFileSibling" | "installByFolderParent" | "Unknown"
-
-export interface IGameExe {
-    name: string
-    rootPath: string
-}
-export interface IStartExe {
-    name: string
-    exePath: string
-}
-
-export interface IGameInfo {
-    GlossGameId: number
-    steamAppID: number
-    installdir?: string
-    gameName: string
-    gameExe: string | IGameExe[]
-    startExe?: string | IStartExe[]
-    gamePath?: string
-    gameVersion?: string
-    gameCoverImg?: string
-    NexusMods?: {
-        game_id: number
-        game_domain_name: string
+    "data": {
+        "name": "简体中文",
+        "code": "zh_CN",
+        "author": "",
+        "version": "1.51.0"
     },
-    Thunderstore?: {
-        community_identifier: string
-    },
-    mod_io?: {
-        game_id: number
+    "Language": {
+        "Cyberpunk 2077": "赛博朋克2077"
     }
 }
-
-export interface IState {
-    file: string,
-    state: boolean
-}
-
-interface IAdvancedItem {
-    type: "input" | "selects" | "switch"
-    label: string
-    key: string
-    selectItem?: { name: string, value: string }[]
-    defaultValue?: string | boolean
-}
-
-export interface ITypeInstall {
-    UseFunction: InstallUseFunction
-    folderName?: string
-    isInstall?: boolean
-    fileName?: string
-    include?: boolean
-    spare?: boolean
-    keepPath?: boolean
-    isExtname?: boolean
-    inGameStorage: boolean
-    pass?: string[]
-}
-
-export interface ICheckModType {
-    UseFunction: "extname" | "basename" | "inPath"
-    Keyword: string | []
-    TypeId: number
-}
-
-export interface IType {
-    id: number
-    name: string
-    installPath?: string
-    advanced?: {
-        name: string
-        icon: string
-        item: IAdvancedItem[]
-    }
-    install: ((mod: IModInfo) => Promise<IState[] | boolean>) | ITypeInstall
-    uninstall: (mod: IModInfo) => Promise<IState[] | boolean> | ITypeInstall
-    checkPlugin?: (plugin: IModInfo) => boolean
-}
-
-export interface ISupportedGames extends IGameInfo {
-    modType: IType[]
-    checkModType: (mod: IModInfo) => number | ICheckModType[]
-    sortMod?: (list: IModInfo[]) => boolean
-}
 ```
 
+保存后, 在 GMM 中按 `Crrl + R`即可刷新语言包, 然后就可以看到游戏名称已经变成中文了.
 
-
-## 示例
-
-直接通过一个示例来解释 `json` 适配的方式吧：
-```json
-{
-    "GlossGameId": 344,
-    "steamAppID": 2420110,
-    "installdir": "Horizon Forbidden West Complete Edition",
-    "gameName": "Horizon Forbidden West",
-    "gameExe": "HorizonForbiddenWest.exe",
-    "startExe": [
-        {
-            "name": "Steam 启动",
-            "exePath": "steam://rungameid/2420110"
-        },
-        {
-            "name": "直接启动",
-            "exePath": "HorizonForbiddenWest.exe"
-        }
-    ],
-    "gameCoverImg": "https://mod.3dmgame.com/static/upload/game/65fd1629ab1c6.webp",
-    "modType": [
-        {
-            "id": 1,
-            "name": "stream",
-            "installPath": "LocalCacheWinGame\\package\\mods",
-            "install": {
-                "UseFunction": "installByFileSibling",
-                "fileName": ".stream",
-                "isInstall": true,
-                "isExtname": true,
-                "inGameStorage": true,
-                "pass": []
-            },
-            "uninstall": {
-                "UseFunction": "installByFileSibling",
-                "fileName": ".stream",
-                "isInstall": false,
-                "isExtname": true,
-                "inGameStorage": true,
-                "pass": []
-            }
-        },
-        {
-            "id": 2,
-            "name": "core",
-            "installPath": "LocalCacheWinGame\\package\\mods",
-            "install": {
-                "UseFunction": "installByFileSibling",
-                "fileName": ".core",
-                "isInstall": true,
-                "isExtname": true,
-                "inGameStorage": true,
-                "pass": []
-            },
-            "uninstall": {
-                "UseFunction": "installByFileSibling",
-                "fileName": ".core",
-                "isInstall": false,
-                "isExtname": true,
-                "inGameStorage": true,
-                "pass": []
-            }
-        },
-        {
-            "id": 99,
-            "name": "未知",
-            "installPath": "\\",
-            "install": {
-                "UseFunction": "Unknown"
-            },
-            "uninstall": {
-                "UseFunction": "Unknown"
-            }
-        }
-    ],
-    "checkModType": [
-        {
-            "UseFunction": "extname",
-            "Keyword": [
-                ".stream"
-            ],
-            "TypeId": 1
-        },
-        {
-            "UseFunction": "extname",
-            "Keyword": [
-                ".core"
-            ],
-            "TypeId": 2
-        }
-    ]
-}
-
-```
-## 安装
-
-将`json`文件放到 `我的文档\Gloss Mod Manager\Expands` 目录， 然后在管理器里面按 `Ctrl+R` 刷新, 即可在`选择游戏`里面的最后面找到你自己新增的游戏了。
+同理，也可以使用这个方法将 类型 翻译为其他语言

@@ -21,6 +21,9 @@
 
 你可以直接在游戏商店找到游戏的 AppId 
 
+## Thunderstore
+- 类型: `String`
+
 ## installdir
 - 类型: `string`
 - 游戏安装目录
