@@ -1,5 +1,8 @@
 ## 更新日志
 
+1.51.1
+- 修复 更新后由于不兼容旧版本语言包而导致无法切换语言的问题
+
 1.51.0 [**<span style="color: #41c9ff;">重要版本</span>**]
 - 重写 下载逻辑, 使其兼容性更高
   - 已适配下载来源：3DM Mod、Thunderstore、ModIo、GameBanana、GitHub
