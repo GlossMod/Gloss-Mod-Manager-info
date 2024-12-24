@@ -105,3 +105,7 @@
 - Frostpunk 2
 - Warhammer 40000 Space Marine 2
 - Dead Rising Deluxe Remaster
+- S.T.A.L.K.E.R. 2: Heart of Chornobyl
+- DRAGON BALL: Sparking! ZERO
+- DRAGON QUEST III HD-2D Remake
+- Red Dead Redemption
