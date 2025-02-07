@@ -75,7 +75,7 @@ export const zh = defineConfig({
         ],
         editLink: {
             text: "在GitHub上编辑此页面",
-            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager-info/edit/main/docs/:path'
+            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager/edit/main/docs/:path'
         },
         lastUpdated: {
             text: '最后更新于',

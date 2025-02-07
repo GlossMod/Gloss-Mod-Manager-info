@@ -9,7 +9,7 @@ titleTemplate: Gloss Mod Manager
 ## Issue 1: Always in Waiting State
 
 This issue has been completely fixed in version 1.20.1.
-If your manager version is outdated, please update to the latest version of GMM as soon as possible: [Update](https://github.com/GlossMod/Gloss-Mod-Manager-info/releases)
+If your manager version is outdated, please update to the latest version of GMM as soon as possible: [Update](https://github.com/GlossMod/Gloss-Mod-Manager/releases)
 
 If you are already on the latest version and still encounter this issue, first check if you have any other downloaders installed. There is known conflict with [Motrix](https://github.com/agalwood/Motrix), which needs to be closed to use the built-in download of GMM.
 

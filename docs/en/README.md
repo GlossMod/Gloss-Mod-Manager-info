@@ -18,7 +18,7 @@ Thus, GMM was born.
 
 Currently, the available download channels that I update and maintain are as follows:
 - [3DM Mod Station](https://mod.3dmgame.com/mod/197445)
-- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info/releases)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager/releases)
 - [Cloud Disk](https://cloud.aoe.top/s/rmuL)
 
 In addition, others are not published by me personally. If you download from other places, I cannot guarantee that there is no Trojan virus, but you can check whether it has been hung by the following methods:

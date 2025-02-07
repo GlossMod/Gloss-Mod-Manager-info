@@ -2,7 +2,7 @@
 
 <center> 
 
-![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
 </center> 
 
 ---- 
@@ -10,7 +10,7 @@
 ### 相關連結:
 
 - 3DM Mod站: https://mod.3dmgame.com/mod/197445
-- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager-info
+- GitHub: https://github.com/GlossMod/Gloss-Mod-Manager
 - 食用教程：https://gmm.aoe.top/
 - 問卷調查: https://wj.qq.com/s2/14010887/92e3/
 - 回饋QQ群: [825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
@@ -146,20 +146,20 @@ Gloss Mod Manager (GMM) 是一款綜合性的現代化遊戲模組管理器.
 
 ### 回饋問題
 
-- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager)
 - [QQ回饋群: 825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 
 ### 協助開發
 在 Discord 裡面聯繫我們.
 
-[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager-info.svg
+[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager.svg
 [author]: https://p.aoe.top/shields/badge/作者-小莫-blue?logo=Cloudera
 [Electron]: https://p.aoe.top/shields/badge/Electron-26.2.0-47848F?logo=electron
 [vue]: https://p.aoe.top/shields/badge/Vue3-3.2.45-4FC08D?logo=vuedotjs
 [Vite]: https://p.aoe.top/shields/badge/Vite-4.0.4-646CFF?logo=vite
 [pinia]: https://p.aoe.top/shields/badge/Pinia-2.0.30-ecb732?logo=Pinia
 [typescript]: https://p.aoe.top/shields/badge/TypeScript-5.0.4-3178C6?logo=typescript
-[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager-info?style=social
-[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager-info
+[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager?style=social
+[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager
 

@@ -2,16 +2,16 @@
 
 <center> 
 
-![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
 </center> 
 
 ---- 
 
 ### Update address:
 
-- Latest Version:  [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) | [3DM Mods](https://mod.3dmgame.com/mod/197445) | [Cloud](https://cloud.aoe.top/s/rmuL)
+- Latest Version:  [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager) | [3DM Mods](https://mod.3dmgame.com/mod/197445) | [Cloud](https://cloud.aoe.top/s/rmuL)
 - Docs: https://gmm.aoe.top
-- Feedback: [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues)
+- Feedback: [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager/issues)
 
 ### What is it?
 Gloss Mod Manager (GMM) is a comprehensive modern game mod manager. It provides an easy and user-friendly way for gamers to manage and install various mods for games. It ensures safety, simplicity, ease of use, and hassle-free quick download, installation, and uninstallation of mods. Whether you are a newbie or an expert, using GMM will make your mod installation and management much easier and faster.
@@ -75,7 +75,7 @@ If you are willing to help us translate GMM into your language, you can do the f
 
 
 ### Feedback
-- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager)
 - [Discord](https://discord.gg/76hmqaw4yS)
 
 
@@ -83,12 +83,12 @@ If you are willing to help us translate GMM into your language, you can do the f
 ### Contributing
 Contact us on Discord. 
 
-[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager-info.svg
+[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager.svg
 [author]: https://p.aoe.top/shields/badge/Author-小莫-blue?logo=Cloudera
 [Electron]: https://p.aoe.top/shields/badge/Electron-26.2.0-47848F?logo=electron
 [vue]: https://p.aoe.top/shields/badge/Vue3-3.2.45-4FC08D?logo=vuedotjs
 [Vite]: https://p.aoe.top/shields/badge/Vite-4.0.4-646CFF?logo=vite
 [pinia]: https://p.aoe.top/shields/badge/Pinia-2.0.30-ecb732?logo=Pinia
 [typescript]: https://p.aoe.top/shields/badge/TypeScript-5.0.4-3178C6?logo=typescript
-[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager-info?style=social
-[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager-info
+[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager?style=social
+[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager

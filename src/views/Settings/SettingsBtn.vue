@@ -85,7 +85,7 @@ function checkUpdates() {
                 {{ $t('QQChat') }}
             </v-chip>
             <v-chip variant="text" label append-icon="mdi-github"
-                href="https://github.com/GlossMod/Gloss-Mod-Manager-info/issues">
+                href="https://github.com/GlossMod/Gloss-Mod-Manager/issues">
                 Github
             </v-chip>
             <v-chip v-if="!langIsCn" variant="text" label href="https://discord.gg/TF46tu7Upw">

@@ -17,7 +17,7 @@ title: Gloss Mod Manager 怎么使用？
 ## 如何下载？
 目前由我更新维护的可用下载渠道有以下几种:
 - [3DM Mod站](https://mod.3dmgame.com/mod/197445)
-- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info/releases)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager/releases)
 - [网盘](https://cloud.aoe.top/s/rmuL)
 
 除此之外, 其他均非我本人发布, 如果你是从其他地方下载的，我不能保证你的是否存在木马病毒，

@@ -15,7 +15,7 @@ hero:
       link: /en/Install
     - theme: alt
       text: Download
-      link: "https://github.com/GlossMod/Gloss-Mod-Manager-info/releases"
+      link: "https://github.com/GlossMod/Gloss-Mod-Manager/releases"
   image:
     src: "https://mod.3dmgame.com/static/upload/mod/202405/MOD663ed1e5509eb.png@webp"
     # width: "200px"

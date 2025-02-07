@@ -614,7 +614,7 @@
 - 更新参与本地化说明
 - 更新修复热更新会导致安装程序终止的问题
 - 更新添加手动更新渠道
-- 请从这里下载最新版本: [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info/releases)
+- 请从这里下载最新版本: [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager/releases)
 
 1.0:
 - 初始发布

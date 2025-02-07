@@ -74,7 +74,7 @@ export const en = defineConfig({
         ],
         editLink: {
             text: "Edit this page on GitHub",
-            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager-info/edit/main/docs/:path'
+            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager/edit/main/docs/:path'
         },
         lastUpdated: {
             text: 'Last updated on',

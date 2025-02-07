@@ -16,6 +16,6 @@ If you are willing to help us translate GMM into your language, you can do the f
 - Open `*.json` files with your favorite editor and translate.
 - You can always press `Ctrl + R` to reload the manager to immediately view the translation.
 
-You can pull you's language to [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) , I will add it in next version.
+You can pull you's language to [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager) , I will add it in next version.
 
 ---

@@ -12,13 +12,13 @@ export const shared = defineConfig({
     themeConfig: {
         logo: "https://mod.3dmgame.com/static/upload/mod/202405/MOD663ed1e5509eb.png@webp",
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/GlossMod/Gloss-Mod-Manager-info' },
+            { icon: 'github', link: 'https://github.com/GlossMod/Gloss-Mod-Manager' },
         ],
         search: {
             provider: 'local'
         },
         editLink: {
-            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager-info/edit/main/docs/:path'
+            pattern: 'https://github.com/GlossMod/Gloss-Mod-Manager/edit/main/docs/:path'
         },
     },
     head: [

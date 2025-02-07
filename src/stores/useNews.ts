@@ -10,7 +10,7 @@ export const useNews = defineStore("News", {
     }),
     actions: {
         async getSupportedGames() {
-            const { data } = await axios.get(`https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager-info/main/docs/SupportedGames.md`)
+            const { data } = await axios.get(`https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager/main/docs/SupportedGames.md`)
             let SupportedGames = data.split('\n')
 
             // 进行倒着排序

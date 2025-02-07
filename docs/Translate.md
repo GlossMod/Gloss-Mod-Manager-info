@@ -16,7 +16,7 @@ title: 翻译 Gloss Mod Manager
 - 使用您喜欢的文本编辑器打开`*.json`文件, 然后进行翻译.
 - 您可以随时按`Ctrl + R`重载管理器来即时查看翻译.
 
- 你可以将翻译好的语言文件，推送到 [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) , 我将在下一个版本中将你的翻译添加到管理器中.
+ 你可以将翻译好的语言文件，推送到 [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager) , 我将在下一个版本中将你的翻译添加到管理器中.
 
 ### 1.51.0 机制更新
 

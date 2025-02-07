@@ -8,10 +8,10 @@ const { locale } = useI18n()
 
 let readmeFile = computed(() => {
     // console.log(locale.value);
-    // let host = `https://raw.githubusercontent.com/GlossMod/Gloss-Mod-Manager-info/main/`
+    // let host = `https://raw.githubusercontent.com/GlossMod/Gloss-Mod-Manager/main/`
     let file = `README_${locale.value}.md`
     if (locale.value == "en_US") file = 'README.md'
-    return `https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager-info/main/${file}`
+    return `https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager/main/${file}`
 })
 
 async function getReadme() {
@@ -19,7 +19,7 @@ async function getReadme() {
         let { data } = await axios.get(readmeFile.value)
         readme.value = data
     } catch (error) {
-        let { data } = await axios.get(`https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager-info/main/README.md`)
+        let { data } = await axios.get(`https://p.aoe.top/githubusercontent/GlossMod/Gloss-Mod-Manager/main/README.md`)
         readme.value = data
     }
 

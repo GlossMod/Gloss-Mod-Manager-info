@@ -2,18 +2,18 @@
 
 <center> 
 
-![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+![][license] ![][author] ![][Vite] ![][Electron] ![][vue] ![][version]  [![][GitHub]](https://github.com/GlossMod/Gloss-Mod-Manager)
 </center> 
 
 ---- 
 
 ### 相关链接:
 
-- 最新版本: [3DM Mod站](https://mod.3dmgame.com/mod/197445) | [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info) | [网盘](https://cloud.aoe.top/s/rmuL)
+- 最新版本: [3DM Mod站](https://mod.3dmgame.com/mod/197445) | [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager) | [网盘](https://cloud.aoe.top/s/rmuL)
 - 食用教程: https://gmm.aoe.top/
 - Mod前置: https://cloud.aoe.top/s/KrRfO
 - 问卷调查: https://wj.qq.com/s2/14010887/92e3/
-- 问题反馈: [QQ频道](https://pd.qq.com/s/hco46ol54) | [QQ群 948689016](https://qm.qq.com/q/3PzfmR1sBi) | [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager-info/issues) 
+- 问题反馈: [QQ频道](https://pd.qq.com/s/hco46ol54) | [QQ群 948689016](https://qm.qq.com/q/3PzfmR1sBi) | [GitHub Issues](https://github.com/GlossMod/Gloss-Mod-Manager/issues) 
 
     <img src="https://mod.3dmgame.com/static/upload/mod/202410/MOD671f300fbe3b7.webp" width="200px" alt="频道">
 
@@ -89,20 +89,20 @@ Gloss Mod Manager (GMM) 是一款综合性的现代化游戏模组管理器.
 
 ### 反馈问题
 
-- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager-info)
+- [GitHub](https://github.com/GlossMod/Gloss-Mod-Manager)
 - [QQ反馈群: 825182128](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PHA9FOcayzFlxe0iU8QPWcHOy_NbBOdW&authKey=fgJvklKDg%2FeWXpG6rNDsPON7ls2omDWGJNZGGRT06QEcEDVjL%2BRLNLB7QFFPvBDL&noverify=0&group_code=825182128)
 
 
 ### 协助开发
 在 Discord 里面联系我们.
 
-[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager-info.svg
+[license]:https://p.aoe.top/shields/github/license/GlossMod/Gloss-Mod-Manager.svg
 [author]: https://p.aoe.top/shields/badge/作者-小莫-blue?logo=Cloudera
 [Electron]: https://p.aoe.top/shields/badge/Electron-26.2.0-47848F?logo=electron
 [vue]: https://p.aoe.top/shields/badge/Vue3-3.2.45-4FC08D?logo=vuedotjs
 [Vite]: https://p.aoe.top/shields/badge/Vite-4.0.4-646CFF?logo=vite
 [pinia]: https://p.aoe.top/shields/badge/Pinia-2.0.30-ecb732?logo=Pinia
 [typescript]: https://p.aoe.top/shields/badge/TypeScript-5.0.4-3178C6?logo=typescript
-[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager-info?style=social
-[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager-info
+[GitHub]: https://p.aoe.top/shields/github/stars/GlossMod/Gloss-Mod-Manager?style=social
+[version]: https://p.aoe.top/shields/github/package-json/v/GlossMod/Gloss-Mod-Manager
 
