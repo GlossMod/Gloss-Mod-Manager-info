@@ -88,6 +88,7 @@ export class Manager {
                     let target = keepPath ? join(gameStorage, item) : join(gameStorage, basename(item))
                     let state = FileHandler.deleteFile(target)
                     res.push({ file: item, state: state })
+                    this.deleteEmptyFolders(dirname(target));
                 }
             } catch (error) {
                 res.push({ file: item, state: false })
@@ -146,6 +147,7 @@ export class Manager {
                         } else {
                             let state = FileHandler.deleteFile(gameStorage)
                             res.push({ file: item, state: state })
+                            this.deleteEmptyFolders(dirname(gameStorage));
                         }
                     } else if (spare) {
                         let gameStorage = join(manager.gameStorage ?? "", installPath, item)
@@ -155,6 +157,7 @@ export class Manager {
                         } else {
                             let state = FileHandler.deleteFile(gameStorage)
                             res.push({ file: item, state: state })
+                            this.deleteEmptyFolders(dirname(gameStorage));
                         }
                     }
                 }
@@ -210,6 +213,7 @@ export class Manager {
                 } else {
                     if (isLink) FileHandler.removeLink(target, true)
                     else FileHandler.deleteFolder(target)
+                    this.deleteEmptyFolders(dirname(target));
                 }
             })
 
@@ -276,6 +280,7 @@ export class Manager {
                         FileHandler.copyFile(source, target)
                     } else {
                         FileHandler.deleteFile(target)
+                        this.deleteEmptyFolders(dirname(target));
                     }
                 })
             })
@@ -315,6 +320,7 @@ export class Manager {
                     FileHandler.createLink(item, target, true)
                 } else {
                     FileHandler.removeLink(target, true)
+                    this.deleteEmptyFolders(dirname(target));
                 }
             })
 
@@ -360,5 +366,20 @@ export class Manager {
 
         let arr = res.map(item => join(modStorage, item))
         return arr
+    }
+
+    // 删除空文件夹
+    private static deleteEmptyFolders(folderPath: string) {
+        if (!existsSync(folderPath)) return;
+
+        const isDirEmpty = (path: string) => {
+            const files = FileHandler.getAllFilesInFolder(path, false);
+            return files.length === 0;
+        };
+
+        while (isDirEmpty(folderPath)) {
+            FileHandler.deleteFolder(folderPath);
+            folderPath = dirname(folderPath);
+        }
     }
 }
