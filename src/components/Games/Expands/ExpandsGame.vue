@@ -217,8 +217,28 @@ function close() {
     checkModType.value = ''
 }
 
+function check() {
+    if (!form.value.GlossGameId) return false
+    if (!form.value.steamAppID) return false
+    if (!form.value.installdir) return false
+    if (!form.value.gameName) return false
+    if (!form.value.gameExe) return false
+    if (!form.value.startExe) return false
+    if (!form.value.gameCoverImg) return false
+    if (!form.value.modType) return false
+    if (!form.value.checkModType) return false
+
+    return true
+}
+
+
 function save() {
     console.log(form.value);
+    if (!check()) {
+        ElMessage.warning("请填写完整数据")
+        return
+    }
+
     Expands.saveExpands(form.value)
     Expands.init()
     ElMessage.success('添加成功')

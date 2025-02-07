@@ -415,6 +415,7 @@ const Games = {
     "SparkingZERO": "DRAGON BALL: Sparking! ZERO",
     "DQIIIHD2DRemake": "DRAGON QUEST III HD-2D Remake",
     "Red Dead Redemption": "Red Dead Redemption",
+    "Kingdom Come Deliverance 2": "Kingdom Come Deliverance 2",
 }
 
 const Other = {

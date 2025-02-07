@@ -420,6 +420,7 @@ const Games = {
     "SparkingZERO": "七龙珠 电光炸裂！ZERO",
     "DQIIIHD2DRemake": "勇者斗恶龙III HD-2D Remake",
     "Red Dead Redemption": "荒野大镖客",
+    "Kingdom Come Deliverance 2": "天国: 拯救2",
 }
 
 const Other = {

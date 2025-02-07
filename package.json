@@ -1,6 +1,6 @@
 {
   "name": "gmm",
-  "version": "1.51.2",
+  "version": "1.52.0",
   "main": "dist-electron/main.js",
   "description": "Gloss Mod Manager",
   "author": "小莫 <mod@3dmgame.com>",
