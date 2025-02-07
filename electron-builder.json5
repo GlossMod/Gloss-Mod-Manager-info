@@ -1,0 +1,48 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+    "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+    "appId": "gmm.aoe.top",
+    "asar": true,
+    "icon": "public/favicon.ico",
+    "productName": "Gloss Mod Manager",
+    "copyright": "Copyright © ${author}",
+    "directories": {
+        "output": "release/${version}"
+    },
+    "files": [
+        "dist-electron",
+        "dist"
+    ],
+    "win": {
+        "target": [
+            {
+                "target": "nsis",
+                "arch": [
+                    "x64"
+                ]
+            }
+        ]
+    },
+    "nsis": {
+        "oneClick": false,
+        "perMachine": false,
+        "allowToChangeInstallationDirectory": true,
+        "deleteAppDataOnUninstall": false,
+        "uninstallDisplayName": "${productName} ${version}",
+        "artifactName": "${productName}_${version}.${ext}",
+        "shortcutName": "${productName}"
+    },
+    "fileAssociations": {
+        "ext": "gmm",
+        "name": "Gloss Mod Manager",
+        "description": "Gloss Mod Manager File",
+        "icon": "public/favicon.ico",
+        "role": "Shell"
+    },
+    "extraResources": {
+        "from": "./resources/",
+        "to": ""
+    }
+}
