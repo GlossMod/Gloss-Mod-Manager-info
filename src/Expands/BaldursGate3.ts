@@ -4,10 +4,15 @@ import { extname, basename, join } from 'path'
 import { ElMessage } from "element-plus";
 import { homedir, } from "os";
 import { statSync } from "fs";
-const xml2js = require('xml2js')
+// const xml2js = require('xml2js')
+// var convert = require('xml-js');
+import convert from 'xml-js'
+
+// import { XMLParser, XMLBuilder } from 'fast-xml-parser'
+
 
 interface IAttribute {
-    $: {
+    _attributes: {
         id: string
         type: string
         value: string
@@ -18,13 +23,15 @@ interface IAttribute {
 
 let modsettings = {
     get data() {
-        let file = join(FileHandler.GetAppData(), 'Local', 'Larian Studios', "Baldur's Gate 3", 'PlayerProfiles', 'Public', 'modsettings.lsx')
-        let data = FileHandler.readFile(file)
-        return xml2js.parseStringPromise(data)
+        const file = join(FileHandler.GetAppData(), 'Local', 'Larian Studios', "Baldur's Gate 3", 'PlayerProfiles', 'Public', 'modsettings.lsx')
+        const data = FileHandler.readFile(file)
+        // return xml2js.parseStringPromise(data)
+        return convert.xml2js(data, { compact: true })
     },
     set data(value) {
-        let file = join(FileHandler.GetAppData(), 'Local', 'Larian Studios', "Baldur's Gate 3", 'PlayerProfiles', 'Public', 'modsettings.lsx')
-        let data = new xml2js.Builder().buildObject(value)
+        const file = join(FileHandler.GetAppData(), 'Local', 'Larian Studios', "Baldur's Gate 3", 'PlayerProfiles', 'Public', 'modsettings.lsx')
+        // const data = new xml2js.Builder().buildObject(value)
+        const data = convert.js2xml(value, { compact: true, spaces: 4 })
         if (data) FileHandler.writeFile(file, data)
     }
 }
@@ -48,19 +55,16 @@ async function LoadModDataFromPak(pakPath: string) {
                 if (error) reject(error);
                 let attribute: IAttribute[] = []
                 if (result) {
-                    let data = await xml2js.parseStringPromise(result)
-
-                    data.save.region[0].node[0].children[0].node.forEach((item: any) => {
-                        if (item.attribute) attribute.push(...item.attribute)
+                    // let data = await xml2js.parseStringPromise(result) 
+                    const data: convert.ElementCompact = convert.xml2js(result, { compact: true })
+                    data.save.region.node.children.node.forEach((item: any) => {
+                        if (item._attributes?.id == "ModuleInfo") {
+                            console.log(item.attribute);
+                            attribute = item.attribute
+                        }
                     })
-                    // if (data.save.region[0].node[0].children[0].node[0]?.attribute) {
-                    //     attribute.push(...data.save.region[0].node[0].children[0].node[0].attribute)
-                    // }
-                    // if (data.save.region[0].node[0].children[0].node[1]?.attribute) {
-                    //     attribute.push(...data.save.region[0].node[0].children[0].node[1].attribute)
-                    // }
-                }
 
+                }
                 resolve(attribute);
             })
         })
@@ -80,22 +84,25 @@ async function handlePak(mod: IModInfo, installPath: string, isInstall: boolean)
     let res: IState[] = []
     let manager = useManager()
 
-    let modsettings_data = await modsettings.data
-    let root = modsettings_data.save.region[0].node[0].children[0].node
-    // console.log(root);
-    if (!root[0].children || !root[0].children[0].node) {
+    let modsettings_data: convert.ElementCompact = await modsettings.data
+    console.log('modsettings_data', modsettings_data);
+
+    // let root = modsettings_data.save.region[0].node[0].children[0].node
+    let root = modsettings_data.save.region.node.children.node
+    console.log('root', root);
+    if (!root.children || !root.children.node) {
         // 如果用户是第一次装Mod
         // console.log('第一次装Mod');
-        root[0] = {
-            $: {
-                id: 'ModOrder'
-            },
-            children: [
-                {
-                    node: []
-                }
-            ]
-        }
+        // root[0] = {
+        //     $: {
+        //         id: 'ModOrder'
+        //     },
+        //     children: [
+        //         {
+        //             node: []
+        //         }
+        //     ]
+        // }
     }
 
     for (let index = 0; index < mod.modFiles.length; index++) {
@@ -108,45 +115,63 @@ async function handlePak(mod: IModInfo, installPath: string, isInstall: boolean)
 
                 let meta = await LoadModDataFromPak(modStorage)
                 if (meta) {
-                    // console.log(meta);
-
-                    let ModuleShortDesc = meta.filter(item => (item.$.id == 'Folder' || item.$.id == 'MD5' || item.$.id == 'Name' || item.$.id == 'UUID' || item.$.id == 'Version64'))
+                    let ModuleShortDesc = meta.filter(item => (item._attributes.id == 'Folder' || item._attributes.id == 'MD5' || item._attributes.id == 'Name' || item._attributes.id == 'UUID' || item._attributes.id == 'Version64' || item._attributes.id == 'PublishHandle'))
+                    console.log(ModuleShortDesc)
 
                     if (ModuleShortDesc.length > 0) {
                         if (isInstall) {
                             // 安装
+                            console.log(root)
+
+                            if (!Array.isArray(root.children.node)) {
+                                root.children.node = [root.children.node]
+                            }
+
+                            root.children.node.push({
+                                "_attributes": {
+                                    "id": "ModuleShortDesc"
+                                },
+                                "attribute": [...ModuleShortDesc]
+                            })
+
                             // ModOrder 中添加 UUID
-                            root[0].children[0].node.push({
-                                $: {
-                                    id: "Module"
-                                },
-                                attribute: [
-                                    {
-                                        $: {
-                                            id: "UUID",
-                                            type: "FixedString",
-                                            value: ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value,
-                                        }
-                                    }
-                                ]
-                            })
-                            // Mods 中添加 数据
-                            root[1].children[0].node.push({
-                                $: {
-                                    id: 'ModuleShortDesc'
-                                },
-                                attribute: [...ModuleShortDesc]
-                            })
+                            // root[0].children[0].node.push({
+                            //     $: {
+                            //         id: "Module"
+                            //     },
+                            //     attribute: [
+                            //         {
+                            //             $: {
+                            //                 id: "UUID",
+                            //                 type: "FixedString",
+                            //                 value: ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value,
+                            //             }
+                            //         }
+                            //     ]
+                            // })
+                            // // Mods 中添加 数据
+                            // root[1].children[0].node.push({
+                            //     $: {
+                            //         id: 'ModuleShortDesc'
+                            //     },
+                            //     attribute: [...ModuleShortDesc]
+                            // })
                         } else {
                             // 卸载
                             // ModOrder 中删除 UUID
-                            root[0].children[0].node = root[0].children[0].node.filter((item: any) => item?.attribute[0].$.value != ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value)
-                            // Mods 中删除 数据
-                            root[1].children[0].node = root[1].children[0].node.filter((item: any) => {
-                                let uuid = item?.attribute.find((item: any) => item.$.id == 'UUID')
-                                if (uuid) return uuid.$.value != ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value
-                                else return true
-                            })
+                            // root.children.node = root.children.node.filter((item: IAttribute) => item._attributes.id )
+
+                            const uuid = ModuleShortDesc.find(item => item._attributes.id == 'UUID')?._attributes.value
+
+                            root.children.node = root.children.node.filter((item: any) => item.attribute.find((item: IAttribute) => item._attributes.id == 'UUID')?._attributes.value != uuid)
+
+                            // root[0].children[0].node = root[0].children[0].node.filter((item: any) => item?.attribute[0].$.value != ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value)
+                            // // Mods 中删除 数据
+                            // root[1].children[0].node = root[1].children[0].node.filter((item: any) => {
+                            //     let uuid = item?.attribute.find((item: any) => item.$.id == 'UUID')
+                            //     if (uuid) return uuid.$.value != ModuleShortDesc.find(item => item.$.id == 'UUID')?.$.value
+                            //     else return true
+                            // })
                         }
                     }
                     modsettings.data = modsettings_data

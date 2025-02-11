@@ -6,82 +6,38 @@ import { basename, join, extname, } from "node:path"
 import { ElMessage } from "element-plus";
 
 import { execSync } from 'child_process';
-const xml2js = require('xml2js')
+// const xml2js = require('xml2js')
+import convert from 'xml-js'
 
-//#region 脚本相关
+// 调用 Rpf.dll
+function RpfHeader(methodName: "Read" | "Write" | "Create", arg: any) {
+    const edge = require('electron-edge-js-v33-only')
+    let assemblyFile = join(getToolsPath(), 'rpf.dll')
 
-let mods_xml = {
-    get data() {
-        let manager = useManager()
-        let gameStorage = join(manager.gameStorage ?? "")
-        let data = FileHandler.readFile(join(gameStorage, 'lml', 'mods.xml'), `<ModsManager> 
-        <Mods />
-        <LoadOrder />
-        </ModsManager>`)
-        return xml2js.parseStringPromise(data)
-    },
-    set data(value) {
-        let manager = useManager()
-        let gameStorage = join(manager.gameStorage ?? "")
-        let file = join(gameStorage, 'lml', 'mods.xml')
-        let data = new xml2js.Builder().buildObject(value)
-        if (data) FileHandler.writeFile(file, data)
-    }
-}
-
-function asi(mod: IModInfo, isInstall: boolean) {
-    let manager = useManager()
-    let modStorage = join(manager.modStorage, mod.id.toString())
-    mod.modFiles.forEach(item => {
-        if (basename(item) == 'install.xml') {
-            install_xml(join(modStorage, item), isInstall)
-        }
+    let Invoke = edge.func({
+        assemblyFile: assemblyFile,
+        typeName: 'Rpf.Program',
+        methodName: methodName
     })
-    return Manager.installByFileSibling(mod, "", '.asi', isInstall, true)
+    return new Promise<any>((resolve, reject) => {
+        Invoke(arg, (error: any, result: any) => {
+            if (error) {
+                console.log(error);
+                reject(error);
+            }
+            else resolve(result);
+        }).finally(() => {
+            // 释放资源
+            Invoke = null;
+        });
+    })
 }
 
-async function install_xml(file: string, isInstall: boolean) {
-    let data = FileHandler.readFile(file)
-    let xml = await xml2js.parseStringPromise(data)
-    let name = xml.EasyInstall.Name[0]
-    let folder = basename(join(file, '..'))
-
-    let mods_xml_data = await mods_xml.data;
-    let { ModsManager } = mods_xml_data
-    // console.log(ModsManager);
-
-    let Mods = ModsManager.Mods
-    let mod = Mods[0].Mod?.find((item: any) => item.$?.folder == folder)
-    if (mod) {
-        // 如果存在 将 Enabled 设为 true
-        mod.Enabled[0] = isInstall
-    } else {
-        if (!Mods[0].Mod) Mods[0] = { Mod: [] }
-        Mods[0].Mod.push({
-            $: {
-                folder: folder,
-            },
-            Name: [name],
-            Enabled: [isInstall],
-            Overwrite: ['false'],
-            DisabledGroups: ['']
-        })
-    }
-
-    let LoadOrder: any[] = ModsManager.LoadOrder
-
-    // let list = LoadOrder[0].Mod
-    // 判断 folder 是否在 LoadOrder[0].Mod 中
-    if (!LoadOrder[0].Mod?.includes(folder)) {
-        if (!LoadOrder[0].Mod) LoadOrder[0] = { Mod: [] }
-        LoadOrder[0].Mod.push(folder)
-    }
-
-    mods_xml.data = mods_xml_data
+function getToolsPath() {
+    const manager = useManager()
+    const tools = manager.getModInfoByWebId(205014);
+    return join(manager.modStorage, tools?.id.toString() ?? "")
 }
-
-
-//#endregion
 
 //#region 添加式
 
@@ -91,14 +47,9 @@ async function install_xml(file: string, isInstall: boolean) {
  * @returns 
  */
 async function GetDlcName(dlc: string) {
-    const manager = useManager()
-    const tools = manager.getModInfoByWebId(205014);
-    const read_path = join(manager.modStorage, tools?.id.toString() ?? "", "_read.bat")
-    const cmd = `"${read_path}" "${dlc}" "setup2.xml"`
-    // console.log(cmd);
-    let xmlData = await xml2js.parseStringPromise(execSync(cmd, { encoding: 'utf8' }).toString());
-    // console.log(xmlData);
-    return xmlData?.SSetupData?.nameHash[0];
+    const data = await RpfHeader("Read", { rpf: dlc, filename: "setup2.xml" })
+    const xmlData: convert.ElementCompact = convert.xml2js(data, { compact: true })
+    return xmlData.SSetupData.nameHash._text
 }
 /**
  * 写入 dlc 名称到 dlclist.xml
@@ -106,9 +57,6 @@ async function GetDlcName(dlc: string) {
  */
 async function writeDlcName(name: string, isInstall: boolean) {
     const manager = useManager()
-    const tools = manager.getModInfoByWebId(205014);
-
-    const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
 
     const update_path = join(manager.gameStorage, "mods", "update", "update.rpf")
     // 判断文件是否存在
@@ -117,31 +65,33 @@ async function writeDlcName(name: string, isInstall: boolean) {
         await FileHandler.copyFile(join(manager.gameStorage, "update", "update.rpf"), update_path)
     }
 
-    // 获取 dlclist.xml
-    const _getDlcList_path = join(tools_path, "_getDlcList.bat");
+    // D:\SteamLibrary\steamapps\common\Grand Theft Auto V\update\update.rpf\common\data\dlclist.xml
+    const dlclistXml = join("common", "data", "dlclist.xml")
+    const xml = await await RpfHeader("Read", { rpf: update_path, filename: dlclistXml })
+    const dlclist: convert.ElementCompact = convert.xml2js(xml, { compact: true })
 
-    const cmd = `"${_getDlcList_path}" "${update_path}"`
-    let xmlData = await xml2js.parseStringPromise(execSync(cmd, { encoding: 'utf8' }).toString());
+    console.log(dlclist);
 
-    let dlclist = xmlData?.SMandatoryPacksData?.Paths[0]?.Item as string[]
     if (isInstall) {
-        dlclist.push(`dlcpacks:/${name}/`)
+        // 判断 `dlcpacks:/${name}/` 是否存在, 不存在 则添加
+        if (!(dlclist.SMandatoryPacksData.Paths.Item as any[]).some((item: any) => item._text == `dlcpacks:/${name}/`)) {
+            dlclist.SMandatoryPacksData.Paths.Item.push({ _text: `dlcpacks:/${name}/` })
+        }
+
     } else {
-        // 从 dlclist 中 移除所有 `dlcpacks:/${name}/`
-        xmlData.SMandatoryPacksData.Paths[0].Item = dlclist.filter(item => item != `dlcpacks:/${name}/`)
+        dlclist.SMandatoryPacksData.Paths.Item = dlclist.SMandatoryPacksData.Paths.Item.filter((item: any) => {
+            return item._text != `dlcpacks:/${name}/`
+        })
     }
+    const data = convert.js2xml(dlclist, { compact: true, spaces: 4 })
 
-    // console.log(xmlData);
-
-    let file = join(tools_path, 'dlclist.xml')
-    let data = new xml2js.Builder().buildObject(xmlData)
     if (data) {
-        await FileHandler.writeFile(file, data)
-        const _write_path = join(tools_path, '_write.bat')
-        const path = join("common", "data", "dlclist.xml");
-        const cmd2 = `"${_write_path}" "${update_path}" "${file}" "${path}"`
-        execSync(cmd2, { encoding: 'utf8' }).toString()
+        const inputFile = join(getToolsPath(), 'dlclist.xml')
+        await FileHandler.writeFile(inputFile, data)
+
+        const res = await RpfHeader("Write", { rpf: update_path, inputFile: inputFile, targetFile: dlclistXml })
     }
+
 }
 
 async function dlcHandler(mod: IModInfo, installPath: string, isInstall: boolean) {
@@ -172,15 +122,17 @@ async function dlcHandler(mod: IModInfo, installPath: string, isInstall: boolean
 function buidGmm() {
     const manager = useManager()
     const gameStorage = join(manager.gameStorage ?? "")
-    const tools = manager.getModInfoByWebId(205014);
-    const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
 
     // 如果不存在 则生成
-    let dlcpacks_path = join(gameStorage, "mods", "update", "x64", "dlcpacks")
-    const cmd = `"${join(tools_path, "_buidGMM.bat")}" "${dlcpacks_path}"`
-    // console.log(cmd);
+    // let dlcpacks_path = join(gameStorage, "mods", "update", "x64", "dlcpacks")
+    // const cmd = `"${join(getToolsPath(), "_buidGMM.bat")}" "${dlcpacks_path}"`
+    // // console.log(cmd);
+    // execSync(cmd, { encoding: 'utf8' }).toString()
+    const inputFolder = join(getToolsPath(), "gmm")
+    const outputPath = join(gameStorage, "mods", "update", "x64", "dlcpacks", "gmm")
+    const rpfName = 'dlc'
+    RpfHeader("Create", { inputFolder, outputPath, rpfName })
 
-    execSync(cmd, { encoding: 'utf8' }).toString()
 }
 
 // 初始化 gmm 的 dlc.rpf
@@ -203,10 +155,8 @@ function initGmm_rpf() {
 async function tyfHandler(mod: IModInfo, isInstall: boolean) {
     initGmm_rpf()
     const manager = useManager()
-    const tools = manager.getModInfoByWebId(205014);
-    const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
 
-    const target = join(tools_path, "gmm", "x64", "vehicles.rpf")
+    const target = join(getToolsPath(), "gmm", "x64", "vehicles.rpf")
 
     for (let index = 0; index < mod.modFiles.length; index++) {
         const item = mod.modFiles[index];
@@ -233,324 +183,512 @@ async function tyfHandler(mod: IModInfo, isInstall: boolean) {
 //#region 人物
 
 async function pedItem(name: string, mod: IModInfo, isInstall: boolean) {
-    let xml = {
-        "Name": [
-            mod.advanced?.enabled ? mod.advanced.data.name : name
-        ],
-        "PropsName": [
-            mod.advanced?.enabled ? mod.advanced.data.Pedtype : "null"
-        ],
-        "ClipDictionaryName": [
-            mod.advanced?.enabled ? mod.advanced.data.ClipDictionaryName : "move_m@generic"
-        ],
-        "BlendShapeFileName": [
-            "null"
-        ],
-        "ExpressionSetName": [
-            "expr_set_ambient_male"
-        ],
-        "ExpressionDictionaryName": [
-            "null"
-        ],
-        "ExpressionName": [
-            "null"
-        ],
-        "Pedtype": [
-            "CIVMALE"
-        ],
-        "MovementClipSet": [
-            mod.advanced?.enabled ? mod.advanced.data.MovementClipSet : "move_m@generic"
-        ],
-        "StrafeClipSet": [
-            "move_ped_strafing"
-        ],
-        "MovementToStrafeClipSet": [
-            "move_ped_to_strafe"
-        ],
-        "InjuredStrafeClipSet": [
-            "move_strafe_injured"
-        ],
-        "FullBodyDamageClipSet": [
-            "dam_ko"
-        ],
-        "AdditiveDamageClipSet": [
-            "dam_ad"
-        ],
-        "DefaultGestureClipSet": [
-            "ANIM_GROUP_GESTURE_M_GENERIC"
-        ],
-        "FacialClipsetGroupName": [
-            "facial_clipset_group_gen_male"
-        ],
-        "DefaultVisemeClipSet": [
-            "ANIM_GROUP_VISEMES_M_LO"
-        ],
-        "SidestepClipSet": [
-            "CLIP_SET_ID_INVALID"
-        ],
-        "PoseMatcherName": [
-            "Male"
-        ],
-        "PoseMatcherProneName": [
-            "Male_prone"
-        ],
-        "GetupSetHash": [
-            "NMBS_SLOW_GETUPS"
-        ],
-        "CreatureMetadataName": [
-            mod.advanced?.enabled ? mod.advanced.data.CreatureMetadataName : "null"
-        ],
-        "DecisionMakerName": [
-            mod.advanced?.enabled ? mod.advanced.data.DecisionMakerName : "DEFAULT"
-        ],
-        "MotionTaskDataSetName": [
-            "STANDARD_PED"
-        ],
-        "DefaultTaskDataSetName": [
-            "STANDARD_PED"
-        ],
-        "PedCapsuleName": [
-            "STANDARD_MALE"
-        ],
-        "PedLayoutName": [
-            ""
-        ],
-        "PedComponentSetName": [
-            ""
-        ],
-        "PedComponentClothName": [
-            ""
-        ],
-        "PedIKSettingsName": [
-            ""
-        ],
-        "TaskDataName": [
-            ""
-        ],
-        "IsStreamedGfx": [
-            {
-                "$": {
-                    "value": mod.advanced?.enabled ? mod.advanced.data.Streamed : "false"
-                }
+
+    // 男
+    let xml_Male = {
+        "Name": {
+            "_text": name
+        },
+        "PropsName": {
+            "_text": "null"
+        },
+        "ClipDictionaryName": {
+            "_text": "move_m@generic"
+        },
+        "BlendShapeFileName": {
+            "_text": "null"
+        },
+        "ExpressionSetName": {
+            "_text": "expr_set_ambient_male"
+        },
+        "ExpressionDictionaryName": {
+            "_text": "null"
+        },
+        "ExpressionName": {
+            "_text": "null"
+        },
+        "Pedtype": {
+            "_text": "CIVMALE"
+        },
+        "MovementClipSet": {
+            "_text": "move_m@generic"
+        },
+        "StrafeClipSet": {
+            "_text": "move_ped_strafing"
+        },
+        "MovementToStrafeClipSet": {
+            "_text": "move_ped_to_strafe"
+        },
+        "InjuredStrafeClipSet": {
+            "_text": "move_strafe_injured"
+        },
+        "FullBodyDamageClipSet": {
+            "_text": "dam_ko"
+        },
+        "AdditiveDamageClipSet": {
+            "_text": "dam_ad"
+        },
+        "DefaultGestureClipSet": {
+            "_text": "ANIM_GROUP_GESTURE_M_GENERIC"
+        },
+        "FacialClipsetGroupName": {
+            "_text": "facial_clipset_group_gen_male"
+        },
+        "DefaultVisemeClipSet": {
+            "_text": "ANIM_GROUP_VISEMES_M_LO"
+        },
+        "SidestepClipSet": {
+            "_text": "CLIP_SET_ID_INVALID"
+        },
+        "PoseMatcherName": {
+            "_text": "Male"
+        },
+        "PoseMatcherProneName": {
+            "_text": "Male_prone"
+        },
+        "GetupSetHash": {
+            "_text": "NMBS_SLOW_GETUPS"
+        },
+        "CreatureMetadataName": {
+            "_text": "null"
+        },
+        "DecisionMakerName": {
+            "_text": "DEFAULT"
+        },
+        "MotionTaskDataSetName": {
+            "_text": "STANDARD_PED"
+        },
+        "DefaultTaskDataSetName": {
+            "_text": "STANDARD_PED"
+        },
+        "PedCapsuleName": {
+            "_text": "STANDARD_MALE"
+        },
+        "PedLayoutName": {},
+        "PedComponentSetName": {},
+        "PedComponentClothName": {},
+        "PedIKSettingsName": {},
+        "TaskDataName": {},
+        "IsStreamedGfx": {
+            "_attributes": {
+                "value": mod.advanced?.data.Streamed ? "true" : "false"
             }
-        ],
-        "AmbulanceShouldRespondTo": [
-            {
-                "$": {
-                    "value": "true"
-                }
+        },
+        "AmbulanceShouldRespondTo": {
+            "_attributes": {
+                "value": "true"
             }
-        ],
-        "CanRideBikeWithNoHelmet": [
-            {
-                "$": {
-                    "value": "false"
-                }
+        },
+        "CanRideBikeWithNoHelmet": {
+            "_attributes": {
+                "value": "false"
             }
-        ],
-        "CanSpawnInCar": [
-            {
-                "$": {
-                    "value": "true"
-                }
+        },
+        "CanSpawnInCar": {
+            "_attributes": {
+                "value": "true"
             }
-        ],
-        "IsHeadBlendPed": [
-            {
-                "$": {
-                    "value": "false"
-                }
+        },
+        "IsHeadBlendPed": {
+            "_attributes": {
+                "value": "false"
             }
-        ],
-        "bOnlyBulkyItemVariations": [
-            {
-                "$": {
-                    "value": "false"
-                }
+        },
+        "bOnlyBulkyItemVariations": {
+            "_attributes": {
+                "value": "false"
             }
-        ],
-        "RelationshipGroup": [
-            "CIVMALE"
-        ],
-        "NavCapabilitiesName": [
-            "STANDARD_PED"
-        ],
-        "PerceptionInfo": [
-            "DEFAULT_PERCEPTION"
-        ],
-        "DefaultBrawlingStyle": [
-            "BS_AI"
-        ],
-        "DefaultUnarmedWeapon": [
-            "WEAPON_UNARMED"
-        ],
-        "Personality": [
-            mod.advanced?.enabled ? mod.advanced.data.Personality : "Streamed_Male"
-        ],
-        "CombatInfo": [
-            mod.advanced?.enabled ? mod.advanced.data.CombatInfo : "DEFAULT"
-        ],
-        "VfxInfoName": [
-            "VFXPEDINFO_HUMAN_GENERIC"
-        ],
-        "AmbientClipsForFlee": [
-            "FLEE"
-        ],
-        "Radio1": [
-            "RADIO_GENRE_CLASSIC_ROCK"
-        ],
-        "Radio2": [
-            "RADIO_GENRE_RIGHT_WING_TALK"
-        ],
-        "FUpOffset": [
-            {
-                "$": {
-                    "value": "0.000000"
-                }
+        },
+        "RelationshipGroup": {
+            "_text": "CIVMALE"
+        },
+        "NavCapabilitiesName": {
+            "_text": "STANDARD_PED"
+        },
+        "PerceptionInfo": {
+            "_text": "DEFAULT_PERCEPTION"
+        },
+        "DefaultBrawlingStyle": {
+            "_text": "BS_AI"
+        },
+        "DefaultUnarmedWeapon": {
+            "_text": "WEAPON_UNARMED"
+        },
+        "Personality": {
+            "_text": "MERRYWEATHER"
+        },
+        "CombatInfo": {
+            "_text": "ARMY"
+        },
+        "VfxInfoName": {
+            "_text": "VFXPEDINFO_HUMAN_GENERIC"
+        },
+        "AmbientClipsForFlee": {
+            "_text": "FLEE"
+        },
+        "Radio1": {
+            "_text": "RADIO_GENRE_PUNK"
+        },
+        "Radio2": {
+            "_text": "RADIO_GENRE_JAZZ"
+        },
+        "FUpOffset": {
+            "_attributes": {
+                "value": "0.000000"
             }
-        ],
-        "RUpOffset": [
-            {
-                "$": {
-                    "value": "0.000000"
-                }
+        },
+        "RUpOffset": {
+            "_attributes": {
+                "value": "0.000000"
             }
-        ],
-        "FFrontOffset": [
-            {
-                "$": {
-                    "value": "0.000000"
-                }
+        },
+        "FFrontOffset": {
+            "_attributes": {
+                "value": "0.000000"
             }
-        ],
-        "RFrontOffset": [
-            {
-                "$": {
-                    "value": "0.147000"
-                }
+        },
+        "RFrontOffset": {
+            "_attributes": {
+                "value": "0.147000"
             }
-        ],
-        "MinActivationImpulse": [
-            {
-                "$": {
-                    "value": "20.000000"
-                }
+        },
+        "MinActivationImpulse": {
+            "_attributes": {
+                "value": "20.000000"
             }
-        ],
-        "Stubble": [
-            {
-                "$": {
-                    "value": "0.000000"
-                }
+        },
+        "Stubble": {
+            "_attributes": {
+                "value": "0.000000"
             }
-        ],
-        "HDDist": [
-            {
-                "$": {
-                    "value": "3.000000"
-                }
+        },
+        "HDDist": {
+            "_attributes": {
+                "value": "3.000000"
             }
-        ],
-        "TargetingThreatModifier": [
-            {
-                "$": {
-                    "value": "1.000000"
-                }
+        },
+        "TargetingThreatModifier": {
+            "_attributes": {
+                "value": "1.000000"
             }
-        ],
-        "KilledPerceptionRangeModifer": [
-            {
-                "$": {
-                    "value": " - 1.000000"
-                }
+        },
+        "KilledPerceptionRangeModifer": {
+            "_attributes": {
+                "value": " - 1.000000"
             }
-        ],
-        "Sexiness": [
-            ""
-        ],
-        "Age": [
-            {
-                "$": {
-                    "value": "0"
-                }
+        },
+        "Sexiness": {},
+        "Age": {
+            "_attributes": {
+                "value": "0"
             }
-        ],
-        "MaxPassengersInCar": [
-            {
-                "$": {
-                    "value": "0"
-                }
+        },
+        "MaxPassengersInCar": {
+            "_attributes": {
+                "value": "0"
             }
-        ],
-        "ExternallyDrivenDOFs": [
-            ""
-        ],
-        "PedVoiceGroup": [
-            "BAR_PERSON_PVG"
-        ],
-        "AnimalAudioObject": [
-            ""
-        ],
-        "AbilityType": [
-            "SAT_NONE"
-        ],
-        "ThermalBehaviour": [
-            "TB_WARM"
-        ],
-        "SuperlodType": [
-            "SLOD_HUMAN"
-        ],
-        "ScenarioPopStreamingSlot": [
-            "SCENARIO_POP_STREAMING_NORMAL"
-        ],
-        "DefaultSpawningPreference": [
-            "DSP_NORMAL"
-        ],
-        "DefaultRemoveRangeMultiplier": [
-            {
-                "$": {
-                    "value": "1.000000"
-                }
+        },
+        "ExternallyDrivenDOFs": {},
+        "PedVoiceGroup": {
+            "_text": "BAR_PERSON_PVG"
+        },
+        "AnimalAudioObject": {},
+        "AbilityType": {
+            "_text": "SAT_NONE"
+        },
+        "ThermalBehaviour": {
+            "_text": "TB_WARM"
+        },
+        "SuperlodType": {
+            "_text": "SLOD_HUMAN"
+        },
+        "ScenarioPopStreamingSlot": {
+            "_text": "SCENARIO_POP_STREAMING_NORMAL"
+        },
+        "DefaultSpawningPreference": {
+            "_text": "DSP_NORMAL"
+        },
+        "DefaultRemoveRangeMultiplier": {
+            "_attributes": {
+                "value": "1.000000"
             }
-        ],
-        "AllowCloseSpawning": [
-            {
-                "$": {
-                    "value": "false"
-                }
+        },
+        "AllowCloseSpawning": {
+            "_attributes": {
+                "value": "false"
             }
-        ]
+        }
     }
+
+    // 女
+    let xml_Female = {
+        "Name": {
+            "_text": name
+        },
+        "PropsName": {
+            "_text": "null"
+        },
+        "ClipDictionaryName": {
+            "_text": "move_f@generic"
+        },
+        "BlendShapeFileName": {
+            "_text": "null"
+        },
+        "ExpressionSetName": {
+            "_text": "expr_set_ambient_female"
+        },
+        "ExpressionDictionaryName": {
+            "_text": "null"
+        },
+        "ExpressionName": {
+            "_text": "null"
+        },
+        "Pedtype": {
+            "_text": "CIVFEMALE"
+        },
+        "MovementClipSet": {
+            "_text": "move_f@generic"
+        },
+        "StrafeClipSet": {
+            "_text": "move_ped_strafing"
+        },
+        "MovementToStrafeClipSet": {
+            "_text": "move_ped_to_strafe"
+        },
+        "InjuredStrafeClipSet": {
+            "_text": "move_strafe_injured"
+        },
+        "FullBodyDamageClipSet": {
+            "_text": "dam_ko"
+        },
+        "AdditiveDamageClipSet": {
+            "_text": "dam_ad"
+        },
+        "DefaultGestureClipSet": {
+            "_text": "ANIM_GROUP_GESTURE_F_GENERIC"
+        },
+        "FacialClipsetGroupName": {
+            "_text": "facial_clipset_group_gen_female"
+        },
+        "DefaultVisemeClipSet": {
+            "_text": "ANIM_GROUP_VISEMES_F_LO"
+        },
+        "SidestepClipSet": {
+            "_text": "CLIP_SET_ID_INVALID"
+        },
+        "PoseMatcherName": {
+            "_text": "Male"
+        },
+        "PoseMatcherProneName": {
+            "_text": "Male_prone"
+        },
+        "GetupSetHash": {
+            "_text": "NMBS_SLOW_GETUPS"
+        },
+        "CreatureMetadataName": {
+            "_text": "null"
+        },
+        "DecisionMakerName": {
+            "_text": "DEFAULT"
+        },
+        "MotionTaskDataSetName": {
+            "_text": "STANDARD_PED"
+        },
+        "DefaultTaskDataSetName": {
+            "_text": "STANDARD_PED"
+        },
+        "PedCapsuleName": {
+            "_text": "STANDARD_FEMALE"
+        },
+        "PedLayoutName": {},
+        "PedComponentSetName": {},
+        "PedComponentClothName": {},
+        "PedIKSettingsName": {},
+        "TaskDataName": {},
+        "IsStreamedGfx": {
+            "_attributes": {
+                "value": mod.advanced?.data.Streamed ? "true" : "false"
+            }
+        },
+        "AmbulanceShouldRespondTo": {
+            "_attributes": {
+                "value": "true"
+            }
+        },
+        "CanRideBikeWithNoHelmet": {
+            "_attributes": {
+                "value": "false"
+            }
+        },
+        "CanSpawnInCar": {
+            "_attributes": {
+                "value": "true"
+            }
+        },
+        "IsHeadBlendPed": {
+            "_attributes": {
+                "value": "false"
+            }
+        },
+        "bOnlyBulkyItemVariations": {
+            "_attributes": {
+                "value": "false"
+            }
+        },
+        "RelationshipGroup": {
+            "_text": "CIVFEMALE"
+        },
+        "NavCapabilitiesName": {
+            "_text": "STANDARD_PED"
+        },
+        "PerceptionInfo": {
+            "_text": "DEFAULT_PERCEPTION"
+        },
+        "DefaultBrawlingStyle": {
+            "_text": "BS_AI"
+        },
+        "DefaultUnarmedWeapon": {
+            "_text": "WEAPON_UNARMED"
+        },
+        "Personality": {
+            "_text": "Streamed_Female"
+        },
+        "CombatInfo": {
+            "_text": "DEFAULT"
+        },
+        "VfxInfoName": {
+            "_text": "VFXPEDINFO_HUMAN_GENERIC"
+        },
+        "AmbientClipsForFlee": {
+            "_text": "FLEE"
+        },
+        "Radio1": {
+            "_text": "RADIO_GENRE_PUNK"
+        },
+        "Radio2": {
+            "_text": "RADIO_GENRE_JAZZ"
+        },
+        "FUpOffset": {
+            "_attributes": {
+                "value": "0.000000"
+            }
+        },
+        "RUpOffset": {
+            "_attributes": {
+                "value": "0.000000"
+            }
+        },
+        "FFrontOffset": {
+            "_attributes": {
+                "value": "0.000000"
+            }
+        },
+        "RFrontOffset": {
+            "_attributes": {
+                "value": "0.147000"
+            }
+        },
+        "MinActivationImpulse": {
+            "_attributes": {
+                "value": "20.000000"
+            }
+        },
+        "Stubble": {
+            "_attributes": {
+                "value": "0.000000"
+            }
+        },
+        "HDDist": {
+            "_attributes": {
+                "value": "3.000000"
+            }
+        },
+        "TargetingThreatModifier": {
+            "_attributes": {
+                "value": "1.000000"
+            }
+        },
+        "KilledPerceptionRangeModifer": {
+            "_attributes": {
+                "value": " - 1.000000"
+            }
+        },
+        "Sexiness": {},
+        "Age": {
+            "_attributes": {
+                "value": "0"
+            }
+        },
+        "MaxPassengersInCar": {
+            "_attributes": {
+                "value": "0"
+            }
+        },
+        "ExternallyDrivenDOFs": {},
+        "PedVoiceGroup": {
+            "_text": "BAR_PERSON_PVG"
+        },
+        "AnimalAudioObject": {},
+        "AbilityType": {
+            "_text": "SAT_NONE"
+        },
+        "ThermalBehaviour": {
+            "_text": "TB_WARM"
+        },
+        "SuperlodType": {
+            "_text": "SLOD_HUMAN"
+        },
+        "ScenarioPopStreamingSlot": {
+            "_text": "SCENARIO_POP_STREAMING_NORMAL"
+        },
+        "DefaultSpawningPreference": {
+            "_text": "DSP_NORMAL"
+        },
+        "DefaultRemoveRangeMultiplier": {
+            "_attributes": {
+                "value": "1.000000"
+            }
+        },
+        "AllowCloseSpawning": {
+            "_attributes": {
+                "value": "false"
+            }
+        }
+    }
+
     const manager = useManager()
     const tools = manager.getModInfoByWebId(205014);
     const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
 
     const meta_path = join(tools_path, "gmm", "data", "pedmodelinfo.meta")
 
-    let metaData = FileHandler.readFile(meta_path, `<?xml version="1.0" encoding="UTF-8"?>
+    let metaData = FileHandler.readFile(meta_path, `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <CPedModelInfo__InitDataList>
     <InitDatas />
 </CPedModelInfo__InitDataList>`);
 
-    let PedModelInfo = await xml2js.parseStringPromise(metaData)
-    if (!PedModelInfo.CPedModelInfo__InitDataList.InitDatas[0].Item) {
-        PedModelInfo.CPedModelInfo__InitDataList = {
-            InitDatas: [{
-                Item: []
-            }]
-        }
+    const PedModelInfo: convert.ElementCompact = convert.xml2js(metaData, { compact: true })
+    console.log(PedModelInfo);
+    const xmlData = (mod.advanced?.data.sex == 'Male' ? xml_Male : xml_Female)
+    console.log(xmlData);
+
+    if (!PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item) {
+        PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item = []
+    }
+
+    if (!Array.isArray(PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item)) {
+        PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item = [PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item]
     }
 
     if (isInstall) {
-        PedModelInfo.CPedModelInfo__InitDataList.InitDatas[0].Item.push(xml)
+        PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item.push(xmlData)
     } else {
-        PedModelInfo.CPedModelInfo__InitDataList.InitDatas[0].Item = PedModelInfo.CPedModelInfo__InitDataList.InitDatas[0].Item.filter((item: any) => {
-            return item.Name[0] != name
+        PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item = PedModelInfo.CPedModelInfo__InitDataList.InitDatas.Item.filter((item: any) => {
+            return item.Name._text != name
         })
     }
 
-    let data = new xml2js.Builder().buildObject(PedModelInfo)
-
+    const data = convert.js2xml(PedModelInfo, { compact: true, spaces: 4 })
     if (data) {
         // console.log(PedModelInfo);
         FileHandler.writeFile(meta_path, data)
@@ -561,12 +699,9 @@ async function pedItem(name: string, mod: IModInfo, isInstall: boolean) {
 async function yddHandler(mod: IModInfo, isInstall: boolean) {
     initGmm_rpf()
     const manager = useManager()
-    const tools = manager.getModInfoByWebId(205014);
-    const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
-
     let names = []
 
-    const target = join(tools_path, "gmm", "x64", "peds.rpf")
+    const target = join(getToolsPath(), "gmm", "x64", "peds.rpf")
     for (let index in mod.modFiles) {
         const item = mod.modFiles[index];
         let types = ['.ydd', '.yft', '.yld', '.ymt', '.ytd']
@@ -624,8 +759,6 @@ async function yddHandler(mod: IModInfo, isInstall: boolean) {
 async function gameconfig(mod: IModInfo, isInstall: boolean) {
 
     const manager = useManager()
-    const tools = manager.getModInfoByWebId(205014);
-    const tools_path = join(manager.modStorage, tools?.id.toString() ?? "")
 
     const update_path = join(manager.gameStorage, "mods", "update", "update.rpf")
     // 判断文件是否存在
@@ -637,16 +770,12 @@ async function gameconfig(mod: IModInfo, isInstall: boolean) {
     mod.modFiles.forEach(item => {
 
         if (basename(item) == 'gameconfig.xml') {
-            const filename = join(manager.modStorage, mod.id.toString(), item)
-            const inputFile = join("common", "data", "gameconfig.xml")
 
-            const _write_bat = join(tools_path, '_write.bat')
+            const rpf = update_path
+            const inputFile = join(manager.modStorage, mod.id.toString(), item)
+            const targetFile = join("common", "data", "gameconfig.xml")
 
-            const cmd = `"${_write_bat}" "${update_path}" "${filename}" "${inputFile}"`
-
-            // console.log(cmd);
-
-            execSync(cmd, { encoding: 'utf8' }).toString()
+            RpfHeader("Write", { rpf, inputFile, targetFile })
         }
 
     })
@@ -678,10 +807,10 @@ export const supportedGames: ISupportedGames = {
             name: "asi",
             installPath: join(""),
             async install(mod) {
-                return asi(mod, true)
+                return Manager.installByFileSibling(mod, "", '.asi', true, true)
             },
             async uninstall(mod) {
-                return asi(mod, false)
+                return Manager.installByFileSibling(mod, "", '.asi', false, true)
             }
         },
         {
@@ -770,11 +899,6 @@ export const supportedGames: ISupportedGames = {
                 icon: "mdi-align-horizontal-center",
                 item: [
                     {
-                        type: "input",
-                        label: "模型名称",
-                        key: "name"
-                    },
-                    {
                         type: "selects",
                         label: "角色性别",
                         key: "sex",
@@ -785,137 +909,10 @@ export const supportedGames: ISupportedGames = {
                         defaultValue: "Female"
                     },
                     {
-                        type: "selects",
-                        label: "类型",
-                        key: "Pedtype",
-                        selectItem: [
-                            { name: "CIVMALE", value: "CIVMALE" },
-                            { name: "CIVFEMALE", value: "CIVFEMALE" }
-                        ],
-                        defaultValue: "CIVMALE"
-                    },
-                    {
                         type: "switch",
                         label: "组合",
                         key: "Streamed"
                     },
-                    {
-                        type: "selects",
-                        label: "词典名称",
-                        key: "ClipDictionaryName",
-                        selectItem: [
-                            { name: "move_f@generic", value: "move_f@generic" },
-                            { name: "move_m@generic", value: "move_m@generic" },
-                            { name: "move_m@tool_belt@a", value: "move_m@tool_belt@a" },
-                            { name: "move_m@shy@a", value: "move_m@shy@a" }
-                        ],
-                        defaultValue: "move_f@generic"
-                    },
-                    {
-                        type: "selects",
-                        label: "走路姿势",
-                        key: "MovementClipSet",
-                        selectItem: [
-                            { name: "ANIM_GROUP_MOVE_BALLISTIC", value: "ANIM_GROUP_MOVE_BALLISTIC" },
-                            { name: "ANIM_GROUP_MOVE_LEMAR_ALLEY", value: "ANIM_GROUP_MOVE_LEMAR_ALLEY" },
-                            { name: "clipset@move@trash_fast_turn", value: "clipset@move@trash_fast_turn" },
-                            { name: "FEMALE_FAST_RUNNER", value: "FEMALE_FAST_RUNNER" },
-                            { name: "missfbi4prepp1_garbageman", value: "missfbi4prepp1_garbageman" },
-                            { name: "move_characters@franklin@fire", value: "move_characters@franklin@fire" },
-                            { name: "move_characters@Jimmy@slow@", value: "move_characters@Jimmy@slow@" },
-                            { name: "move_characters@michael@fire", value: "move_characters@michael@fire" },
-                            { name: "move_f@flee@a", value: "move_f@flee@a" },
-                            { name: "move_f@scared", value: "move_f@scared" },
-                            { name: "move_f@sexy@a", value: "move_f@sexy@a" },
-                            { name: "move_heist_lester", value: "move_heist_lester" },
-                            { name: "move_injured_generic", value: "move_injured_generic" },
-                            { name: "move_lester_CaneUp", value: "move_lester_CaneUp" },
-                            { name: "move_m@bag", value: "move_m@bag" },
-                            { name: "MOVE_M@BAIL_BOND_NOT_TAZERED", value: "MOVE_M@BAIL_BOND_NOT_TAZERED" },
-                            { name: "MOVE_M@BAIL_BOND_TAZERED", value: "MOVE_M@BAIL_BOND_TAZERED" },
-                            { name: "move_m@brave", value: "move_m@brave" },
-                            { name: "move_m@casual@d", value: "move_m@casual@d" },
-                            { name: "move_m@drunk@moderatedrunk", value: "move_m@drunk@moderatedrunk" },
-                            { name: "MOVE_M@DRUNK@MODERATEDRUNK", value: "MOVE_M@DRUNK@MODERATEDRUNK" },
-                            { name: "MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP", value: "MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP" },
-                            { name: "MOVE_M@DRUNK@SLIGHTLYDRUNK", value: "MOVE_M@DRUNK@SLIGHTLYDRUNK" },
-                            { name: "MOVE_M@DRUNK@VERYDRUNK", value: "MOVE_M@DRUNK@VERYDRUNK" },
-                            { name: "move_m@fire", value: "move_m@fire" },
-                            { name: "move_m@gangster@var_e", value: "move_m@gangster@var_e" },
-                            { name: "move_m@gangster@var_f", value: "move_m@gangster@var_f" },
-                            { name: "move_m@gangster@var_i", value: "move_m@gangster@var_i" },
-                            { name: "move_m@JOG@", value: "move_m@JOG@" },
-                            { name: "MOVE_M@PRISON_GAURD", value: "MOVE_M@PRISON_GAURD" },
-                            { name: "MOVE_P_M_ONE", value: "MOVE_P_M_ONE" },
-                            { name: "MOVE_P_M_ONE_BRIEFCASE", value: "MOVE_P_M_ONE_BRIEFCASE" },
-                            { name: "move_p_m_zero_janitor", value: "move_p_m_zero_janitor" },
-                            { name: "move_p_m_zero_slow", value: "move_p_m_zero_slow" },
-                            { name: "move_ped_bucket", value: "move_ped_bucket" },
-                            { name: "move_ped_crouched", value: "move_ped_crouched" },
-                            { name: "move_ped_mop", value: "move_ped_mop" },
-                            { name: "MOVE_M@FEMME@", value: "MOVE_M@FEMME@" },
-                            { name: "MOVE_F@FEMME@", value: "MOVE_F@FEMME@" },
-                            { name: "MOVE_M@GANGSTER@NG", value: "MOVE_M@GANGSTER@NG" },
-                            { name: "MOVE_F@GANGSTER@NG", value: "MOVE_F@GANGSTER@NG" },
-                            { name: "MOVE_M@POSH@", value: "MOVE_M@POSH@" },
-                            { name: "MOVE_F@POSH@", value: "MOVE_F@POSH@" },
-                            { name: "MOVE_M@TOUGH_GUY@", value: "MOVE_M@TOUGH_GUY@" },
-                            { name: "MOVE_F@TOUGH_GUY@", value: "MOVE_F@TOUGH_GUY@" }
-                        ],
-                        defaultValue: "move_f@generic"
-                    },
-                    {
-                        type: "selects",
-                        label: "源数据",
-                        key: "CreatureMetadataName",
-                        selectItem: [
-                            { name: "null", value: "null" },
-                            { name: "ambientPed_upperWrinkles", value: "ambientPed_upperWrinkles" },
-                            { name: "3Lateral_Facial", value: "3Lateral_Facial" },
-                            { name: "MP_CreatureMetadata", value: "MP_CreatureMetadata" }
-                        ],
-                        defaultValue: "null"
-                    },
-                    {
-                        type: "selects",
-                        label: "所属派系",
-                        key: "DecisionMakerName",
-                        selectItem: [
-                            { name: "默认", value: "DEFAULT" },
-                            { name: "帮派", value: "GANG" },
-                            { name: "警察", value: "COP" }
-                        ],
-                        defaultValue: "DEFAULT"
-                    },
-                    {
-                        type: "selects",
-                        key: "Personality",
-                        label: "性格",
-                        selectItem: [
-                            { name: "Streamed_Male", value: "Streamed_Male" },
-                            { name: "Streamed_Female", value: "Streamed_Female" },
-                            { name: "FitnessMale", value: "FitnessMale" },
-                            { name: "FitnessFemale", value: "FitnessFemale" },
-                            { name: "VAGOS", value: "VAGOS" },
-                            { name: "MERRYWEATHER", value: "MERRYWEATHER" },
-                            { name: "SERVICEMALES", value: "SERVICEMALES" },
-                            { name: "SERVICEFEMALES", value: "SERVICEFEMALES" },
-                            { name: "YOUNGAVERAGETOUGHWOMAN", value: "YOUNGAVERAGETOUGHWOMAN" },
-                            { name: "CONSTRUCTION", value: "CONSTRUCTION" }
-                        ],
-                        defaultValue: "Streamed_Male"
-                    },
-                    {
-                        type: "selects",
-                        key: "CombatInfo",
-                        label: "战斗动作",
-                        selectItem: [
-                            { name: "默认", value: "DEFAULT" },
-                            { name: "帮派", value: "GANG" },
-                            { name: "警察", value: "COP" }
-                        ],
-                        defaultValue: "DEFAULT"
-                    }
                 ]
             }
         },
