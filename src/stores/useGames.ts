@@ -34,7 +34,11 @@ export const useGames = defineStore("Games", {
                         "Authorization": "67d8667248a801ff6ddc74ac43016168"
                     }
                 })
-                this.GamePlugins = data.data ?? []
+                if (data && data.data) {
+                    this.GamePlugins = data.data
+                } else {
+                    this.GamePlugins = []
+                }
             } catch (error) {
                 console.error('获取前置列表失败:', error)
                 this.GamePlugins = []
