@@ -477,10 +477,10 @@ async function pedItem(name: string, mod: IModInfo, isInstall: boolean) {
             "_text": "CLIP_SET_ID_INVALID"
         },
         "PoseMatcherName": {
-            "_text": "Male"
+            "_text": "Female"
         },
         "PoseMatcherProneName": {
-            "_text": "Male_prone"
+            "_text": "Female_prone"
         },
         "GetupSetHash": {
             "_text": "NMBS_SLOW_GETUPS"
