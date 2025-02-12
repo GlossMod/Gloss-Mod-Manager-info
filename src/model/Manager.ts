@@ -99,6 +99,7 @@ export class Manager {
 
     // 检查插件是否已经安装
     public static checkInstalled(name: string, webId: number) {
+        // 已经屏蔽了自动下载和安装的代码，但保留了判断逻辑
         // const manager = useManager()
         // let modId = manager.isAddedWebId(webId)
         // if (modId) {

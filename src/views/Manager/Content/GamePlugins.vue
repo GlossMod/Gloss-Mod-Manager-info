@@ -1,11 +1,8 @@
 <script lang='ts' setup>
-
-
-
 const manager = useManager()
+const settings = useSettings()
 
 function install(plugins: IGamePlugins) {
-
     let mod: IModInfo = {
         id: plugins.plugins_webId as number,
         modName: plugins.plugins_name,
@@ -18,15 +15,19 @@ function install(plugins: IGamePlugins) {
         webId: plugins.plugins_webId,
         from: plugins.plugins_from as sourceType,
         modWebsite: plugins.plugins_website
-
     }
 
     manager.updateMod(mod)
 }
 
+// 组件名称定义
+defineOptions({
+    name: 'ManagerContentGamePlugins'
+})
 </script>
+
 <template>
-    <v-card variant="tonal" color="#FFAB00" v-if="manager.plugins.length > 0">
+    <v-card variant="tonal" color="#FFAB00" v-if="manager.plugins.length > 0 && settings.settings.showPlugins">
         <v-card-title>所需前置
             <v-chip color="#1E88E5" label variant="text" target="_blank" href="https://cloud.aoe.top/s/KrRfO"
                 append-icon="mdi-open-in-new">前置包
@@ -64,10 +65,5 @@ function install(plugins: IGamePlugins) {
         </v-card-text>
     </v-card>
 </template>
-<script lang='ts'>
 
-export default {
-    name: 'ManagerContentGamePlugins',
-}
-</script>
 <style lang='less' scoped></style>
