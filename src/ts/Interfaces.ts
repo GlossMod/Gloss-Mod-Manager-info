@@ -272,6 +272,7 @@ declare global {
         showPakeMessage: boolean
         changeInRun: boolean
         defaultPage: string
+        showPlugins: boolean // 是否显示前置列表
     }
 
     interface IFileTreeNode {

@@ -22,22 +22,27 @@ export const useGames = defineStore("Games", {
     },
     actions: {
         async getGamePlugins() {
+            const settings = useSettings()
+            if (!settings.settings.showPlugins) {
+                this.GamePlugins = []
+                return
+            }
 
-            const { data } = await axios.post('https://mod.3dmgame.com/api/v2/GetPluginsList', {}, {
-                headers: {
-                    "Authorization": "67d8667248a801ff6ddc74ac43016168"
+            try {
+                const { data } = await axios.post('https://mod.3dmgame.com/api/v2/GetPluginsList', {}, {
+                    headers: {
+                        "Authorization": "67d8667248a801ff6ddc74ac43016168"
+                    }
+                })
+                if (data && data.data) {
+                    this.GamePlugins = data.data
+                } else {
+                    this.GamePlugins = []
                 }
-            })
-            console.log(data);
-            // let res = await fetch('https://mod.3dmgame.com/api/v2/GetPluginsList', {
-            //     method: 'POST',
-            //     headers: {
-            //         "Authorization": "67d8667248a801ff6ddc74ac43016168"
-            //     }
-            // })
-            // let data: any = await res.json()
-            this.GamePlugins = data.data ?? []
-
+            } catch (error) {
+                console.error('获取前置列表失败:', error)
+                this.GamePlugins = []
+            }
         }
     }
 })

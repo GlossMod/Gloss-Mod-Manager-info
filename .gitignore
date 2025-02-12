@@ -35,3 +35,4 @@ yarn.lock
 # config files
 electron-builder.json5
 /electron/model/Config.ts
+/.vs

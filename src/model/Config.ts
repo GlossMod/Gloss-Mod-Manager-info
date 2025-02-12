@@ -45,7 +45,8 @@ export class Config {
             selectGameByFolder: settings.selectGameByFolder,
             showPakeMessage: settings.showPakeMessage,
             changeInRun: settings.changeInRun,
-            defaultPage: settings.defaultPage
+            defaultPage: settings.defaultPage,
+            showPlugins: settings.showPlugins
         }
     }
     // 保存配置文件
@@ -86,7 +87,8 @@ export class Config {
             selectGameByFolder: data.selectGameByFolder ?? false,
             showPakeMessage: data.showPakeMessage ?? true,
             changeInRun: data.changeInRun ?? false,
-            defaultPage: data.defaultPage ?? "Home"
+            defaultPage: data.defaultPage ?? "Home",
+            showPlugins: data.showPlugins ?? true  // 添加这一行
         }
 
         // 初始化游戏
